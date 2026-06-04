@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react'
 // resolve from the site root, not relative to the page's folder.
 export default defineConfig({
   plugins: [react()],
-  base: '/',  // custom domain (www.aasaitech.in) so base stays /
+  base: '/aasaitech-webv1/',
   build: {
     outDir: 'dist',
     chunkSizeWarningLimit: 1200,
