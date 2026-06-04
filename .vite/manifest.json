@@ -1,6 +1,6 @@
 {
-  "_client-bL02Nc_d.js": {
-    "file": "assets/client-bL02Nc_d.js",
+  "_client-B-hG2vTz.js": {
+    "file": "assets/client-B-hG2vTz.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,15 +8,15 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-D842QQ0L.js",
+    "file": "assets/app-7hFyzpZE.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-bL02Nc_d.js"
+      "_client-B-hG2vTz.js"
     ],
     "css": [
-      "assets/app-Bm8pORAn.css"
+      "assets/app-J72C1hLU.css"
     ],
     "assets": [
       "assets/fa-brands-400-C99Yv4gD.woff2",
