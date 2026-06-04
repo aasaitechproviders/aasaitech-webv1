@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/aasaitech-webv1/',
+  base: '/',
   build: {
     outDir: 'dist',
     chunkSizeWarningLimit: 1200,

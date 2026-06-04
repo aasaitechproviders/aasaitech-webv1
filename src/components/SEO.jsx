@@ -1,10 +1,7 @@
-import { Head } from 'vite-react-ssg'
+import { Helmet } from 'react-helmet-async'
 
 const ORIGIN = 'https://www.aasaitech.in'
 
-// Renders real <title>/<meta> tags into the prerendered HTML for each route,
-// so search engines and social scrapers see correct per-page metadata on first
-// load — no JS execution required.
 export default function SEO({ title, description, path = '/', image }) {
   const fullTitle = title
     ? `${title} | Aasai Tech`
@@ -16,7 +13,7 @@ export default function SEO({ title, description, path = '/', image }) {
     'DPIIT-recognized & NVIDIA Inception member building production AI from Tamil Nadu — virtual try-on, school platform, free AI chat, and support & sales agents.'
 
   return (
-    <Head>
+    <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={desc} />
       <link rel="canonical" href={url} />
@@ -29,6 +26,6 @@ export default function SEO({ title, description, path = '/', image }) {
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={desc} />
       <meta name="twitter:image" content={img} />
-    </Head>
+    </Helmet>
   )
 }
