@@ -27,8 +27,22 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Copy index as 404 fallback
-        run: cp dist/index.html dist/404.html
+      - name: Fix asset paths for GitHub Pages subpath
+        run: |
+          BASE="/aasaitech-webv1"
+          find dist -name "*.html" | while read f; do
+            sed -i \
+              -e "s|href=\"/assets/|href=\"${BASE}/assets/|g" \
+              -e "s|src=\"/assets/|src=\"${BASE}/assets/|g" \
+              -e "s|href=\"/images/|href=\"${BASE}/images/|g" \
+              -e "s|src=\"/images/|src=\"${BASE}/images/|g" \
+              -e "s|href=\"/static-loader|href=\"${BASE}/static-loader|g" \
+              "$f"
+          done
+          find dist -name "*.js" | xargs grep -l 'static-loader-data-manifest' | while read f; do
+            sed -i "s|\"static-loader-data-manifest|\"${BASE}/static-loader-data-manifest|g" "$f"
+            sed -i "s|fetch(\"/static-loader|fetch(\"${BASE}/static-loader|g" "$f"
+          done
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
