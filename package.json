@@ -3,13 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Aasai Tech — Enterprise AI Solutions. React website with dedicated product pages.",
   "scripts": {
     "dev": "vite",
-    "presitemap": "true",
-    "sitemap": "node scripts/generate-sitemap.mjs",
-    "prebuild": "node scripts/generate-sitemap.mjs",
-    "build": "vite-react-ssg build",
+    "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
