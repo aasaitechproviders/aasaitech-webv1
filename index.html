@@ -12,9 +12,21 @@
     <meta property="og:site_name" content="Aasai Tech" />
     <meta property="og:locale" content="en_IN" />
 
-    <!-- title + description are supplied per-page by the SEO component
-         (src/components/SEO.jsx), which renders them into each prerendered
-         page. Every route, including the homepage, sets its own. -->
+    <!-- GitHub Pages SPA: decode the ?/ redirect from 404.html -->
+    <script>
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+
+    <!-- title + description are supplied per-page by the SEO component -->
 
     <!-- Structured data: Organization (site-wide) -->
     <script type="application/ld+json">
@@ -43,7 +55,7 @@
     }
     </script>
 
-    <!-- Google Analytics (carried over from the existing site) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WYLK8PWBP5"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
