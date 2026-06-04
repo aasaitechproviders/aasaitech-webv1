@@ -14,7 +14,7 @@ export const COMPANY = {
   altEmail: 'aasaitechproviders@gmail.com',
   phone: '+91 89391 34777',
   phoneHref: 'tel:+918939134777',
-  location: 'Chennai, Tamil Nadu, India',
+  location: 'Devapandalam, Tamil Nadu, India',
   responseTime: 'Within 24 hours on business days',
   brochure: '/images/AasaiTech_Brochure.pdf',
   social: {
