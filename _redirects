@@ -1,0 +1,3 @@
+# Cloudflare Pages: serve prerendered HTML directly; fall back to SPA for
+# any path without a prebuilt page (e.g. unknown product slugs).
+/*    /index.html   200
