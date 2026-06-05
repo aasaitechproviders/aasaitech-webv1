@@ -207,6 +207,14 @@
   /* Hide desktop topbar */
   .nav-topbar { display: none; }
 
+  /* Center logo absolutely so it sits in the middle of the bar */
+  .nav-inner { position: relative; }
+  .nav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   /* Slide-down drawer */
   .nav-links {
     position: fixed;
