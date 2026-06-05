@@ -37,13 +37,13 @@ export default function Navbar() {
             {COMPANY.phone}
           </a>
           <div className="nav-topbar-center">
-            <span className="nav-topbar-badge"><i className="fas fa-microchip" /> NVIDIA Inception</span>
+            <span className="nav-topbar-badge"><i className="fas fa-microchip" /><span className="badge-label"> NVIDIA Inception</span></span>
             <span className="nav-topbar-divider">·</span>
-            <span className="nav-topbar-badge"><i className="fas fa-award" /> DPIIT Recognized</span>
+            <span className="nav-topbar-badge"><i className="fas fa-award" /><span className="badge-label"> DPIIT Recognized</span></span>
             <span className="nav-topbar-divider">·</span>
-            <span className="nav-topbar-tagline"><i className="fas fa-bolt" /> AI-First Studio · Tamil Nadu, India</span>
+            <span className="nav-topbar-tagline"><i className="fas fa-bolt" /><span className="badge-label"> AI-First Studio · Tamil Nadu, India</span></span>
           </div>
-          <a href={`mailto:${COMPANY.email}`} className="nav-topbar-item">
+          <a href={`mailto:${COMPANY.email}`} className="nav-topbar-item nav-topbar-email">
             <i className="fas fa-envelope" />
             {COMPANY.email}
           </a>

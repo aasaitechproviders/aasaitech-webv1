@@ -204,8 +204,18 @@
   /* Show hamburger on the LEFT */
   .nav-toggle { display: block; }
 
-  /* Hide desktop topbar */
-  .nav-topbar { display: none; }
+  /* Mobile topbar — NVIDIA+DPIIT icons left, phone number right */
+  .nav-topbar { display: block; padding: 6px 0; }
+  .nav-topbar-inner { justify-content: space-between; gap: 0; flex-direction: row-reverse; }
+  .nav-topbar-email { display: none; }
+  .nav-topbar-item { font-size: 0.75rem; gap: 6px; }
+  .nav-topbar-item i { font-size: 0.68rem; }
+  .nav-topbar-center { gap: 10px; flex: 0; }
+  .nav-topbar-tagline { display: none; }
+  .nav-topbar-divider { display: none; }
+  .badge-label { display: none; }
+  .nav-topbar-badge { font-size: 1rem; gap: 0; }
+  .nav-topbar-badge i { font-size: 0.9rem; opacity: 1; }
 
   /* Center logo absolutely so it sits in the middle of the bar */
   .nav-inner { position: relative; }
@@ -215,10 +225,10 @@
     transform: translateX(-50%);
   }
 
-  /* Slide-down drawer */
+  /* Slide-down drawer — drops below topbar + navbar on mobile */
   .nav-links {
     position: fixed;
-    top: var(--nav-h); left: 0; right: 0;
+    top: calc(var(--topbar-h) + var(--nav-h)); left: 0; right: 0;
     background: var(--surface);
     border-bottom: 1px solid var(--border);
     flex-direction: column;
@@ -229,7 +239,7 @@
     transform: translateY(-120%);
     transition: transform 0.32s cubic-bezier(.2,.7,.2,1);
     box-shadow: 0 20px 40px rgba(13,15,26,0.08);
-    max-height: calc(100vh - var(--nav-h));
+    max-height: calc(100vh - var(--topbar-h) - var(--nav-h));
     overflow-y: auto;
   }
   .nav-links.open { transform: translateY(0); }
