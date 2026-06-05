@@ -36,6 +36,13 @@ export default function Navbar() {
             <i className="fas fa-phone-alt" />
             {COMPANY.phone}
           </a>
+          <div className="nav-topbar-center">
+            <span className="nav-topbar-badge"><i className="fas fa-microchip" /> NVIDIA Inception</span>
+            <span className="nav-topbar-divider">·</span>
+            <span className="nav-topbar-badge"><i className="fas fa-award" /> DPIIT Recognized</span>
+            <span className="nav-topbar-divider">·</span>
+            <span className="nav-topbar-tagline"><i className="fas fa-bolt" /> AI-First Studio · Tamil Nadu, India</span>
+          </div>
           <a href={`mailto:${COMPANY.email}`} className="nav-topbar-item">
             <i className="fas fa-envelope" />
             {COMPANY.email}
@@ -118,11 +125,6 @@ export default function Navbar() {
         </nav>
 
         <div className="nav-right">
-          {/* Phone visible in nav bar on mid-size screens */}
-          <a href={COMPANY.phoneHref} className="nav-phone">
-            <i className="fas fa-phone-alt" />
-            {COMPANY.phone}
-          </a>
           <Link to="/contact" className="btn btn-blue nav-cta">
             Get in touch <i className="fas fa-arrow-right" style={{ fontSize: '0.75rem' }} />
           </Link>

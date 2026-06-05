@@ -4,12 +4,13 @@
   color: #fff;
   font-size: 0.8rem;
   font-weight: 500;
-  padding: 6px 0;
+  padding: 7px 0;
 }
 .nav-topbar-inner {
   display: flex;
   align-items: center;
-  gap: 28px;
+  justify-content: space-between;
+  gap: 16px;
 }
 .nav-topbar-item {
   display: inline-flex;
@@ -17,9 +18,47 @@
   gap: 7px;
   color: rgba(255,255,255,0.92);
   transition: color 0.16s;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .nav-topbar-item:hover { color: #fff; }
 .nav-topbar-item i { font-size: 0.72rem; }
+
+/* Center badges strip */
+.nav-topbar-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  flex: 1;
+  flex-wrap: nowrap;
+}
+.nav-topbar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(255,255,255,0.96);
+  font-weight: 600;
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.nav-topbar-badge i { font-size: 0.68rem; opacity: 0.85; }
+.nav-topbar-divider {
+  color: rgba(255,255,255,0.35);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+.nav-topbar-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(255,255,255,0.78);
+  font-size: 0.74rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.nav-topbar-tagline i { font-size: 0.65rem; color: #a5f3fc; }
 
 /* ── Main header shell ── */
 .nav-header {
@@ -140,19 +179,6 @@
 }
 .flyout-all:hover { background: var(--blue-soft); }
 
-/* ── Phone link in desktop nav bar ── */
-.nav-phone {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--ink-2);
-  transition: color 0.18s;
-  white-space: nowrap;
-}
-.nav-phone i { font-size: 0.78rem; color: var(--blue); }
-.nav-phone:hover { color: var(--blue); }
 
 /* ── Mobile contact strip (inside drawer, hidden on desktop) ── */
 .nav-mobile-contact { display: none; }
@@ -172,7 +198,6 @@
 @media (max-width: 940px) {
   /* Hide desktop-only elements */
   .nav-topbar { display: none; }
-  .nav-phone { display: none; }
   .nav-cta { display: none; }
   .nav-toggle { display: block; }
 
