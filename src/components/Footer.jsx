@@ -18,6 +18,23 @@ export default function Footer() {
             DPIIT-recognized startup and NVIDIA Inception member building
             production-grade AI from Tamil Nadu for the world.
           </p>
+
+          {/* Contact details — visible to Google & users */}
+          <address className="footer-contact">
+            <a href={COMPANY.phoneHref} className="footer-contact-row">
+              <i className="fas fa-phone-alt" />
+              <span>{COMPANY.phone}</span>
+            </a>
+            <a href={`mailto:${COMPANY.email}`} className="footer-contact-row">
+              <i className="fas fa-envelope" />
+              <span>{COMPANY.email}</span>
+            </a>
+            <div className="footer-contact-row">
+              <i className="fas fa-map-marker-alt" />
+              <span>{COMPANY.location}</span>
+            </div>
+          </address>
+
           <div className="footer-social">
             <a href={COMPANY.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><i className="fab fa-facebook-f" /></a>
             <a href={COMPANY.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><i className="fab fa-linkedin-in" /></a>

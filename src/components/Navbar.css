@@ -1,10 +1,31 @@
+/* ── Top contact bar (desktop only) ── */
+.nav-topbar {
+  background: var(--blue);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 6px 0;
+}
+.nav-topbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav-topbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255,255,255,0.92);
+  transition: color 0.16s;
+}
+.nav-topbar-item:hover { color: #fff; }
+.nav-topbar-item i { font-size: 0.72rem; }
+
+/* ── Main header shell ── */
 .nav-header {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  height: var(--nav-h);
-  display: flex;
-  align-items: center;
   background: rgba(251, 251, 253, 0.82);
   backdrop-filter: blur(18px) saturate(180%);
   border-bottom: 1px solid transparent;
@@ -19,7 +40,10 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height: var(--nav-h);
 }
+
+/* ── Logo ── */
 .nav-logo { display: flex; align-items: center; gap: 10px; }
 .nav-logo img { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); object-fit: cover; }
 .nav-logo-name {
@@ -30,6 +54,7 @@
 }
 .nav-logo-name em { font-style: italic; color: var(--blue); }
 
+/* ── Nav links ── */
 .nav-links { display: flex; align-items: center; gap: 1.9rem; margin-right: auto; margin-left: 2.75rem; }
 .nav-item { position: relative; }
 .nav-link {
@@ -47,7 +72,7 @@
 .nav-caret { font-size: 0.6rem; transition: transform 0.2s; opacity: 0.6; }
 .has-flyout:hover .nav-caret { transform: rotate(180deg); }
 
-/* Flyout */
+/* ── Flyout dropdown ── */
 .flyout {
   position: absolute;
   top: calc(100% + 18px);
@@ -115,6 +140,24 @@
 }
 .flyout-all:hover { background: var(--blue-soft); }
 
+/* ── Phone link in desktop nav bar ── */
+.nav-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  transition: color 0.18s;
+  white-space: nowrap;
+}
+.nav-phone i { font-size: 0.78rem; color: var(--blue); }
+.nav-phone:hover { color: var(--blue); }
+
+/* ── Mobile contact strip (inside drawer, hidden on desktop) ── */
+.nav-mobile-contact { display: none; }
+
+/* ── Right side ── */
 .nav-right { display: flex; align-items: center; gap: 14px; }
 .nav-links .nav-cta-mobile { display: none; }
 .nav-toggle {
@@ -125,9 +168,15 @@
   color: var(--ink);
 }
 
+/* ── Mobile ── */
 @media (max-width: 940px) {
+  /* Hide desktop-only elements */
+  .nav-topbar { display: none; }
+  .nav-phone { display: none; }
   .nav-cta { display: none; }
   .nav-toggle { display: block; }
+
+  /* Slide-down drawer */
   .nav-links {
     position: fixed;
     top: var(--nav-h); left: 0; right: 0;
@@ -136,7 +185,7 @@
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: 12px 24px 24px;
+    padding: 12px 24px 28px;
     transform: translateY(-120%);
     transition: transform 0.32s cubic-bezier(.2,.7,.2,1);
     box-shadow: 0 20px 40px rgba(13,15,26,0.08);
@@ -144,7 +193,12 @@
     overflow-y: auto;
   }
   .nav-links.open { transform: translateY(0); }
-  .nav-link { padding: 14px 0; border-bottom: 1px solid var(--border); width: 100%; justify-content: space-between; }
+  .nav-link {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    justify-content: space-between;
+  }
   .has-flyout { width: 100%; }
   .flyout {
     position: static;
@@ -158,5 +212,34 @@
     background: transparent;
   }
   .flyout-grid { grid-template-columns: 1fr; }
+
+  /* Mobile contact strip — shown at bottom of drawer */
+  .nav-mobile-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 6px;
+    border-top: 1px solid var(--border);
+    padding-top: 4px;
+  }
+  .nav-mobile-contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 0;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--border);
+    transition: color 0.16s;
+  }
+  .nav-mobile-contact-row i {
+    font-size: 0.8rem;
+    color: var(--blue);
+    width: 16px;
+    text-align: center;
+  }
+  .nav-mobile-contact-row:hover { color: var(--blue); }
+
   .nav-links .nav-cta-mobile { display: flex; justify-content: center; margin-top: 16px; }
 }

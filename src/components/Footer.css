@@ -16,6 +16,34 @@
 .footer-logo span { font-family: var(--display); font-size: 1.25rem; font-weight: 600; color: #fff; }
 .footer-logo em { font-style: italic; color: var(--blue-2); }
 .footer-brand p { font-size: 0.9rem; line-height: 1.7; color: #9498a8; max-width: 320px; }
+
+/* Contact block */
+.footer-contact {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+.footer-contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: #9498a8;
+  transition: color 0.16s;
+  text-decoration: none;
+}
+a.footer-contact-row:hover { color: #fff; }
+.footer-contact-row i {
+  font-size: 0.78rem;
+  color: var(--blue-2);
+  margin-top: 3px;
+  flex-shrink: 0;
+  width: 14px;
+  text-align: center;
+}
+
 .footer-social { display: flex; gap: 10px; margin-top: 22px; }
 .footer-social a {
   width: 38px; height: 38px;

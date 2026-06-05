@@ -1,5 +1,5 @@
 /* ── HERO ── */
-.hero { position: relative; padding: calc(var(--nav-h) + 70px) 0 90px; overflow: hidden; }
+.hero { position: relative; padding: calc(var(--nav-h) + var(--topbar-h) + 70px) 0 90px; overflow: hidden; }
 .hero-bg {
   position: absolute;
   top: -200px; right: -150px;

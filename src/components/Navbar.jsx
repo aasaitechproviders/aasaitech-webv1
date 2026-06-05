@@ -22,7 +22,6 @@ export default function Navbar() {
     setFlyout(false)
   }, [location])
 
-  // Navigate to a homepage anchor, working from any route
   const goAnchor = (e, hash) => {
     e.preventDefault()
     navigate('/' + hash)
@@ -30,6 +29,20 @@ export default function Navbar() {
 
   return (
     <header className={`nav-header ${scrolled ? 'scrolled' : ''}`}>
+      {/* Top contact bar — desktop only */}
+      <div className="nav-topbar">
+        <div className="container nav-topbar-inner">
+          <a href={COMPANY.phoneHref} className="nav-topbar-item">
+            <i className="fas fa-phone-alt" />
+            {COMPANY.phone}
+          </a>
+          <a href={`mailto:${COMPANY.email}`} className="nav-topbar-item">
+            <i className="fas fa-envelope" />
+            {COMPANY.email}
+          </a>
+        </div>
+      </div>
+
       <div className="container nav-inner">
         <Link to="/" className="nav-logo">
           <img src="/images/logo.png" alt="Aasai Tech" />
@@ -86,12 +99,30 @@ export default function Navbar() {
           <Link className="nav-link" to="/about">
             About
           </Link>
+
+          {/* Mobile contact strip — shown inside drawer */}
+          <div className="nav-mobile-contact">
+            <a href={COMPANY.phoneHref} className="nav-mobile-contact-row">
+              <i className="fas fa-phone-alt" />
+              {COMPANY.phone}
+            </a>
+            <a href={`mailto:${COMPANY.email}`} className="nav-mobile-contact-row">
+              <i className="fas fa-envelope" />
+              {COMPANY.email}
+            </a>
+          </div>
+
           <Link className="nav-cta-mobile btn btn-blue" to="/contact">
             Contact us
           </Link>
         </nav>
 
         <div className="nav-right">
+          {/* Phone visible in nav bar on mid-size screens */}
+          <a href={COMPANY.phoneHref} className="nav-phone">
+            <i className="fas fa-phone-alt" />
+            {COMPANY.phone}
+          </a>
           <Link to="/contact" className="btn btn-blue nav-cta">
             Get in touch <i className="fas fa-arrow-right" style={{ fontSize: '0.75rem' }} />
           </Link>

@@ -1,4 +1,4 @@
-.sp-hero { position: relative; padding: calc(var(--nav-h) + 56px) 0 56px; overflow: hidden; }
+.sp-hero { position: relative; padding: calc(var(--nav-h) + var(--topbar-h) + 56px) 0 56px; overflow: hidden; }
 .sp-hero-bg { position: absolute; top: -180px; right: -120px; width: 600px; height: 600px; background: radial-gradient(circle, var(--blue-soft) 0%, transparent 60%); pointer-events: none; }
 .sp-hero .display-title { max-width: 760px; }
 

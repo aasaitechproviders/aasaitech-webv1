@@ -1,7 +1,7 @@
 .pp { --p-color: var(--blue); --p-soft: var(--blue-soft); }
 
 /* Hero */
-.pp-hero { position: relative; padding: calc(var(--nav-h) + 50px) 0 70px; overflow: hidden; }
+.pp-hero { position: relative; padding: calc(var(--nav-h) + var(--topbar-h) + 50px) 0 70px; overflow: hidden; }
 .pp-hero-bg { position: absolute; top: -180px; right: -120px; width: 640px; height: 640px; background: radial-gradient(circle, var(--p-soft) 0%, transparent 60%); pointer-events: none; }
 .pp-crumb { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-3); margin-bottom: 30px; display: flex; align-items: center; gap: 8px; }
 .pp-crumb a:hover { color: var(--ink); }

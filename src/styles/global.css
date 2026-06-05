@@ -40,10 +40,11 @@
   --r-xl: 28px;
   --maxw: 1200px;
   --nav-h: 70px;
+  --topbar-h: 34px;
 }
 
 * , *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 124px; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--sans);
   background: var(--bg);
