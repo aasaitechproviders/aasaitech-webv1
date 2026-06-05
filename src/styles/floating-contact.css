@@ -1,0 +1,99 @@
+/* ── Floating Contact Us button — bottom-right, all devices ── */
+.float-contact {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(37, 56, 255, 0.38), 0 2px 8px rgba(13,15,26,0.14);
+  text-decoration: none;
+  overflow: hidden;
+  /* Collapsed: icon only */
+  width: 52px;
+  height: 52px;
+  transition: width 0.32s cubic-bezier(.2,.7,.2,1),
+              box-shadow 0.22s,
+              background 0.18s;
+}
+
+/* Icon circle */
+.float-contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  font-size: 1.15rem;
+  transition: transform 0.22s;
+}
+
+/* Label — hidden until expanded */
+.float-contact-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  padding-right: 18px;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.22s 0.06s, transform 0.22s 0.06s;
+  pointer-events: none;
+}
+
+/* Hover / focus — pill expands to show label */
+.float-contact:hover,
+.float-contact:focus-visible {
+  width: 148px;
+  background: var(--blue-dark, #1a2de0);
+  box-shadow: 0 12px 40px rgba(37, 56, 255, 0.45), 0 2px 8px rgba(13,15,26,0.18);
+  outline: none;
+}
+.float-contact:hover .float-contact-icon,
+.float-contact:focus-visible .float-contact-icon {
+  transform: scale(1.08);
+}
+.float-contact:hover .float-contact-label,
+.float-contact:focus-visible .float-contact-label {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Active press */
+.float-contact:active {
+  transform: scale(0.96);
+}
+
+/* Subtle entrance animation */
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.float-contact {
+  animation: floatIn 0.5s cubic-bezier(.2,.7,.2,1) 0.6s both;
+}
+
+/* Mobile — slightly smaller, closer to edge */
+@media (max-width: 600px) {
+  .float-contact {
+    bottom: 20px;
+    right: 18px;
+    width: 48px;
+    height: 48px;
+  }
+  .float-contact-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.05rem;
+  }
+  .float-contact:hover,
+  .float-contact:focus-visible {
+    width: 140px;
+  }
+}

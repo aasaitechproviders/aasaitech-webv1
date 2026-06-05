@@ -51,6 +51,15 @@ export default function Navbar() {
       </div>
 
       <div className="container nav-inner">
+        {/* Hamburger — LEFT side on mobile */}
+        <button
+          className="nav-toggle"
+          aria-label="Menu"
+          onClick={() => setOpen((o) => !o)}
+        >
+          <i className={`fas ${open ? 'fa-times' : 'fa-bars'}`} />
+        </button>
+
         <Link to="/" className="nav-logo">
           <img src="/images/logo.png" alt="Aasai Tech" />
           <span className="nav-logo-name">
@@ -123,19 +132,6 @@ export default function Navbar() {
             Contact us
           </Link>
         </nav>
-
-        <div className="nav-right">
-          <Link to="/contact" className="btn btn-blue nav-cta">
-            Get in touch <i className="fas fa-arrow-right" style={{ fontSize: '0.75rem' }} />
-          </Link>
-          <button
-            className="nav-toggle"
-            aria-label="Menu"
-            onClick={() => setOpen((o) => !o)}
-          >
-            <i className={`fas ${open ? 'fa-times' : 'fa-bars'}`} />
-          </button>
-        </div>
       </div>
     </header>
   )

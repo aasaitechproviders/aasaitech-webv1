@@ -77,13 +77,26 @@
 .nav-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   height: var(--nav-h);
+  gap: 0;
+}
+
+/* ── Hamburger — hidden on desktop, LEFT on mobile ── */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--ink);
+  padding: 6px 8px 6px 0;
+  margin-right: 6px;
+  flex-shrink: 0;
+  order: -1;
 }
 
 /* ── Logo ── */
-.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-logo img { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); object-fit: cover; }
 .nav-logo-name {
   font-family: var(--display);
@@ -94,7 +107,7 @@
 .nav-logo-name em { font-style: italic; color: var(--blue); }
 
 /* ── Nav links ── */
-.nav-links { display: flex; align-items: center; gap: 1.9rem; margin-right: auto; margin-left: 2.75rem; }
+.nav-links { display: flex; align-items: center; gap: 1.9rem; margin-left: 2.75rem; }
 .nav-item { position: relative; }
 .nav-link {
   background: none;
@@ -106,6 +119,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  cursor: pointer;
 }
 .nav-link:hover { color: var(--ink); }
 .nav-caret { font-size: 0.6rem; transition: transform 0.2s; opacity: 0.6; }
@@ -179,27 +193,19 @@
 }
 .flyout-all:hover { background: var(--blue-soft); }
 
-
 /* ── Mobile contact strip (inside drawer, hidden on desktop) ── */
 .nav-mobile-contact { display: none; }
 
-/* ── Right side ── */
-.nav-right { display: flex; align-items: center; gap: 14px; }
+/* ── Mobile CTA in drawer ── */
 .nav-links .nav-cta-mobile { display: none; }
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.25rem;
-  color: var(--ink);
-}
 
 /* ── Mobile ── */
 @media (max-width: 940px) {
-  /* Hide desktop-only elements */
-  .nav-topbar { display: none; }
-  .nav-cta { display: none; }
+  /* Show hamburger on the LEFT */
   .nav-toggle { display: block; }
+
+  /* Hide desktop topbar */
+  .nav-topbar { display: none; }
 
   /* Slide-down drawer */
   .nav-links {
@@ -210,6 +216,7 @@
     flex-direction: column;
     align-items: stretch;
     gap: 0;
+    margin-left: 0;
     padding: 12px 24px 28px;
     transform: translateY(-120%);
     transition: transform 0.32s cubic-bezier(.2,.7,.2,1);
