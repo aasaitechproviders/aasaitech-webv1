@@ -14,12 +14,18 @@ export default function About() {
         <div className="sp-hero-accent" aria-hidden />
         {/* About page bg icons: team/company/India theme */}
         <div className="section-bg" aria-hidden>
-          <i className="fas fa-users       f1" style={{ top:'10%', left:'1%',  color:'var(--blue)', opacity:'0.06', fontSize:'3rem',   transform:'rotate(-18deg)' }} />
-          <i className="fas fa-map-marker-alt f3" style={{ top:'50%', left:'3%',  color:'var(--blue)', opacity:'0.05', fontSize:'2.2rem', transform:'rotate(25deg)'  }} />
-          <i className="fas fa-award       f5" style={{ top:'78%', left:'12%', color:'var(--violet)',opacity:'0.05', fontSize:'2.8rem', transform:'rotate(-35deg)' }} />
-          <i className="fas fa-microchip   f2" style={{ top:'12%', right:'2%', color:'var(--blue)', opacity:'0.06', fontSize:'3.2rem', transform:'rotate(22deg)'  }} />
-          <i className="fas fa-rocket      f4" style={{ top:'45%', right:'1%', color:'var(--violet)',opacity:'0.05', fontSize:'2.4rem', transform:'rotate(-42deg)' }} />
-          <i className="fas fa-globe       f6" style={{ top:'80%', right:'10%',color:'var(--blue)', opacity:'0.05', fontSize:'2rem',   transform:'rotate(55deg)'  }} />
+          {[
+            { icon:'fa-users',        top:'10%', left:'1%',   rot:-18, size:3.2, delay:'f1', color:'var(--blue)'   },
+            { icon:'fa-map-marker-alt',top:'50%', left:'3%',  rot:25,  size:2.2, delay:'f3', color:'var(--blue)'   },
+            { icon:'fa-award',        top:'78%', left:'12%',  rot:-35, size:2.8, delay:'f5', color:'var(--violet)' },
+            { icon:'fa-microchip',    top:'12%', right:'2%',  rot:22,  size:3.2, delay:'f2', color:'var(--blue)'   },
+            { icon:'fa-rocket',       top:'45%', right:'1%',  rot:-42, size:2.4, delay:'f4', color:'var(--violet)' },
+            { icon:'fa-globe',        top:'80%', right:'10%', rot:55,  size:2.0, delay:'f6', color:'var(--blue)'   },
+          ].map((b, i) => (
+            <span key={i} className={b.delay} style={{ position:'absolute', top:b.top, left:b.left, right:b.right, transform:`rotate(${b.rot}deg)`, display:'inline-flex', color:b.color, opacity:0.1, fontSize:`${b.size}rem` }}>
+              <i className={`fas ${b.icon}`} />
+            </span>
+          ))}
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <span className="eyebrow">About Aasai Tech</span>

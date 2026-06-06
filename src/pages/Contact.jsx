@@ -55,12 +55,18 @@ export default function Contact() {
         <div className="sp-hero-bg" aria-hidden />
         {/* Contact page bg icons: communication theme */}
         <div className="section-bg" aria-hidden>
-          <i className="fas fa-envelope    f1" style={{ top:'10%', left:'1%',  color:'var(--blue)', opacity:'0.06', fontSize:'3rem',   transform:'rotate(-18deg)' }} />
-          <i className="fas fa-phone-alt   f3" style={{ top:'48%', left:'3%',  color:'var(--blue)', opacity:'0.05', fontSize:'2.2rem', transform:'rotate(28deg)'  }} />
-          <i className="fas fa-comment-dots f5" style={{ top:'80%', left:'12%', color:'var(--violet)',opacity:'0.05', fontSize:'2.8rem', transform:'rotate(-35deg)' }} />
-          <i className="fas fa-headset     f2" style={{ top:'12%', right:'2%', color:'var(--blue)', opacity:'0.06', fontSize:'3.2rem', transform:'rotate(22deg)'  }} />
-          <i className="fas fa-paper-plane f4" style={{ top:'50%', right:'1%', color:'var(--violet)',opacity:'0.05', fontSize:'2.4rem', transform:'rotate(-42deg)' }} />
-          <i className="fas fa-map-marker-alt f6" style={{ top:'78%', right:'10%',color:'var(--blue)', opacity:'0.05', fontSize:'2rem', transform:'rotate(55deg)'  }} />
+          {[
+            { icon:'fa-envelope',       top:'10%', left:'1%',   rot:-18, size:3.2, delay:'f1', color:'var(--blue)'   },
+            { icon:'fa-phone-alt',      top:'48%', left:'3%',   rot:28,  size:2.2, delay:'f3', color:'var(--blue)'   },
+            { icon:'fa-comment-dots',   top:'80%', left:'12%',  rot:-35, size:2.8, delay:'f5', color:'var(--violet)' },
+            { icon:'fa-headset',        top:'12%', right:'2%',  rot:22,  size:3.2, delay:'f2', color:'var(--blue)'   },
+            { icon:'fa-paper-plane',    top:'50%', right:'1%',  rot:-42, size:2.4, delay:'f4', color:'var(--violet)' },
+            { icon:'fa-map-marker-alt', top:'78%', right:'10%', rot:55,  size:2.0, delay:'f6', color:'var(--blue)'   },
+          ].map((b, i) => (
+            <span key={i} className={b.delay} style={{ position:'absolute', top:b.top, left:b.left, right:b.right, transform:`rotate(${b.rot}deg)`, display:'inline-flex', color:b.color, opacity:0.1, fontSize:`${b.size}rem` }}>
+              <i className={`fas ${b.icon}`} />
+            </span>
+          ))}
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <span className="eyebrow">Contact</span>

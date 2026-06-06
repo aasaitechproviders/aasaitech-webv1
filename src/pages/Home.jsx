@@ -13,6 +13,28 @@ const fadeUp = {
   show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.08, ease: [0.2, 0.7, 0.2, 1] } }),
 }
 
+// Single bg icon: wrapper span handles float animation, inner i holds the icon
+// Separating them means rotation (transform) never conflicts with translateY animation
+function BI({ icon, top, left, right, bottom, rot = 0, size = 2.2, delay = 'f1', color = 'var(--blue)', opacity = 0.055 }) {
+  return (
+    <span
+      className={delay}
+      style={{
+        position: 'absolute',
+        top, left, right, bottom,
+        transform: `rotate(${rot}deg)`,
+        display: 'inline-flex',
+        color,
+        opacity,
+        lineHeight: 1,
+        fontSize: `${size}rem`,
+      }}
+    >
+      <i className={`fas ${icon}`} />
+    </span>
+  )
+}
+
 export default function Home() {
   useReveal([])
   const featured = PRODUCTS.find((p) => p.featured)
@@ -27,15 +49,15 @@ export default function Home() {
         <div className="hero-bg-img" aria-hidden />
         {/* Hero bg icons: AI/tech theme */}
         <div className="section-bg" aria-hidden>
-          <i className="fas fa-brain sz-xl r-n15 f1 c-blue"   style={{ top:'8%',  left:'2%'  }} />
-          <i className="fas fa-microchip sz-lg r-25 f2 c-blue" style={{ top:'28%', left:'8%'  }} />
-          <i className="fas fa-robot sz-md r-n30 f3 c-violet"  style={{ top:'60%', left:'3%'  }} />
-          <i className="fas fa-code sz-sm r-40 f4 c-blue"      style={{ top:'80%', left:'18%' }} />
-          <i className="fas fa-network-wired sz-lg r-12 f5 c-blue"  style={{ top:'15%', right:'6%'  }} />
-          <i className="fas fa-database sz-md r-n45 f6 c-violet"     style={{ top:'48%', right:'3%'  }} />
-          <i className="fas fa-cloud sz-xl r-55 f7 c-blue"           style={{ top:'70%', right:'12%' }} />
-          <i className="fas fa-code-branch sz-sm r-n15 f8 c-green"   style={{ top:'40%', left:'22%'  }} />
-          <i className="fas fa-atom sz-md r-25 f2 c-violet"          style={{ top:'88%', right:'25%' }} />
+          <BI icon="fa-brain"          top="8%"  left="2%"   rot={-18} size={3.2} delay="f1" />
+          <BI icon="fa-microchip"      top="28%" left="8%"   rot={28}  size={2.2} delay="f2" />
+          <BI icon="fa-robot"          top="60%" left="3%"   rot={-30} size={1.6} delay="f3" color="var(--violet)" />
+          <BI icon="fa-code"           top="80%" left="18%"  rot={40}  size={1.3} delay="f4" />
+          <BI icon="fa-network-wired"  top="15%" right="6%"  rot={22}  size={2.2} delay="f5" />
+          <BI icon="fa-database"       top="48%" right="3%"  rot={-45} size={1.6} delay="f6" color="var(--violet)" />
+          <BI icon="fa-cloud"          top="70%" right="12%" rot={55}  size={3.2} delay="f7" />
+          <BI icon="fa-code-branch"    top="40%" left="22%"  rot={-15} size={1.3} delay="f8" color="var(--green)" />
+          <BI icon="fa-atom"           top="88%" right="25%" rot={25}  size={1.6} delay="f2" color="var(--violet)" />
         </div>
 
         <div className="container hero-inner">
@@ -128,12 +150,12 @@ export default function Home() {
       {/* ── STATS — numbers/growth icons ── */}
       <section className="stats-section has-bg-icons">
         <div className="section-bg" aria-hidden>
-          <i className="fas fa-chart-line sz-xl r-12 f1 c-blue"     style={{ top:'10%',  left:'1%'  }} />
-          <i className="fas fa-chart-bar  sz-lg r-n25 f3 c-blue"    style={{ top:'50%',  left:'6%'  }} />
-          <i className="fas fa-trophy    sz-md r-40 f5 c-violet"    style={{ top:'70%',  left:'22%' }} />
-          <i className="fas fa-chart-pie sz-lg r-n15 f2 c-blue"     style={{ top:'15%',  right:'4%' }} />
-          <i className="fas fa-rocket    sz-xl r-25 f4 c-violet"    style={{ top:'55%',  right:'2%' }} />
-          <i className="fas fa-star      sz-sm r-55 f6 c-blue"      style={{ top:'80%',  right:'18%'}} />
+          <BI icon="fa-chart-line" top="10%"  left="1%"   rot={12}  size={3.2} delay="f1" />
+          <BI icon="fa-chart-bar"  top="50%"  left="6%"   rot={-25} size={2.2} delay="f3" />
+          <BI icon="fa-trophy"     top="70%"  left="22%"  rot={40}  size={1.6} delay="f5" color="var(--violet)" />
+          <BI icon="fa-chart-pie"  top="15%"  right="4%"  rot={-15} size={2.2} delay="f2" />
+          <BI icon="fa-rocket"     top="55%"  right="2%"  rot={25}  size={3.2} delay="f4" color="var(--violet)" />
+          <BI icon="fa-star"       top="80%"  right="18%" rot={55}  size={1.3} delay="f6" />
         </div>
         <div className="container">
           <div className="stats-strip">
@@ -150,14 +172,14 @@ export default function Home() {
       {/* ── PRODUCTS — product/app icons ── */}
       <section className="section has-bg-icons" id="products">
         <div className="section-bg" aria-hidden>
-          <i className="fas fa-shirt      sz-xl r-n20 f1 c-violet"  style={{ top:'5%',   left:'0%'  }} />
-          <i className="fas fa-graduation-cap sz-lg r-30 f3 c-blue" style={{ top:'35%',  left:'5%'  }} />
-          <i className="fas fa-comments   sz-md r-n40 f5 c-green"   style={{ top:'65%',  left:'1%'  }} />
-          <i className="fas fa-headset    sz-lg r-15 f2 c-violet"   style={{ top:'85%',  left:'15%' }} />
-          <i className="fas fa-store      sz-xl r-n25 f4 c-blue"    style={{ top:'8%',   right:'1%' }} />
-          <i className="fas fa-mobile-alt sz-lg r-40 f6 c-violet"   style={{ top:'40%',  right:'3%' }} />
-          <i className="fas fa-robot      sz-md r-n15 f7 c-blue"    style={{ top:'72%',  right:'8%' }} />
-          <i className="fas fa-wand-magic-sparkles sz-sm r-55 f8 c-violet" style={{ top:'90%', right:'20%' }} />
+          <BI icon="fa-shirt"               top="5%"  left="0%"   rot={-20} size={3.2} delay="f1" color="var(--violet)" />
+          <BI icon="fa-graduation-cap"      top="35%" left="5%"   rot={30}  size={2.2} delay="f3" />
+          <BI icon="fa-comments"            top="65%" left="1%"   rot={-40} size={1.6} delay="f5" color="var(--green)" />
+          <BI icon="fa-headset"             top="85%" left="15%"  rot={15}  size={2.2} delay="f2" color="var(--violet)" />
+          <BI icon="fa-store"               top="8%"  right="1%"  rot={-25} size={3.2} delay="f4" />
+          <BI icon="fa-mobile-alt"          top="40%" right="3%"  rot={40}  size={2.2} delay="f6" color="var(--violet)" />
+          <BI icon="fa-robot"               top="72%" right="8%"  rot={-15} size={1.6} delay="f7" />
+          <BI icon="fa-wand-magic-sparkles" top="90%" right="20%" rot={55}  size={1.3} delay="f8" color="var(--violet)" />
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="products-top reveal">
@@ -188,12 +210,12 @@ export default function Home() {
       {/* ── PROBLEM → SOLUTION — pain/fix icons ── */}
       <section className="section problem-section has-bg-icons">
         <div className="section-bg" aria-hidden>
-          <i className="fas fa-times-circle sz-xl r-n20 f1 c-orange" style={{ top:'8%',  left:'1%',  color:'var(--orange)', opacity:'0.04' }} />
-          <i className="fas fa-box-open    sz-lg r-30  f3 c-orange"  style={{ top:'40%', left:'4%',  color:'var(--orange)', opacity:'0.04' }} />
-          <i className="fas fa-check-circle sz-xl r-n15 f2 c-green"  style={{ top:'12%', right:'1%', color:'var(--green)',  opacity:'0.05' }} />
-          <i className="fas fa-bolt        sz-lg r-40  f4 c-green"   style={{ top:'50%', right:'3%', color:'var(--green)',  opacity:'0.05' }} />
-          <i className="fas fa-shield-halved sz-md r-55 f5 c-blue"   style={{ top:'80%', left:'20%', opacity:'0.04' }} />
-          <i className="fas fa-lightbulb   sz-lg r-n30 f6 c-violet"  style={{ top:'75%', right:'15%', color:'var(--violet)', opacity:'0.04' }} />
+          <BI icon="fa-times-circle"  top="8%"  left="1%"   rot={-20} size={3.2} delay="f1" color="var(--orange)" opacity={0.08} />
+          <BI icon="fa-box-open"      top="40%" left="4%"   rot={30}  size={2.2} delay="f3" color="var(--orange)" opacity={0.08} />
+          <BI icon="fa-check-circle"  top="12%" right="1%"  rot={-15} size={3.2} delay="f2" color="var(--green)"  opacity={0.09} />
+          <BI icon="fa-bolt"          top="50%" right="3%"  rot={40}  size={2.2} delay="f4" color="var(--green)"  opacity={0.09} />
+          <BI icon="fa-shield-halved" top="80%" left="20%"  rot={55}  size={1.6} delay="f5" opacity={0.08} />
+          <BI icon="fa-lightbulb"     top="75%" right="15%" rot={-30} size={2.2} delay="f6" color="var(--violet)" opacity={0.08} />
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-head center reveal">
@@ -240,13 +262,13 @@ export default function Home() {
       {/* ── SERVICES — dev/build icons ── */}
       <section className="section has-bg-icons" id="services">
         <div className="section-bg" aria-hidden>
-          <i className="fas fa-laptop-code sz-xl r-n20 f1 c-blue"  style={{ top:'5%',  left:'0%'  }} />
-          <i className="fas fa-server      sz-lg r-30  f3 c-blue"  style={{ top:'38%', left:'3%'  }} />
-          <i className="fas fa-terminal    sz-md r-n40 f5 c-violet" style={{ top:'70%', left:'8%'  }} />
-          <i className="fas fa-cloud-upload-alt sz-xl r-15 f2 c-blue" style={{ top:'10%', right:'2%' }} />
-          <i className="fas fa-cogs        sz-lg r-40  f4 c-violet" style={{ top:'48%', right:'1%' }} />
-          <i className="fas fa-sitemap     sz-md r-n25 f6 c-blue"  style={{ top:'80%', right:'12%'}} />
-          <i className="fas fa-code        sz-sm r-55  f7 c-green" style={{ top:'90%', left:'25%'  }} />
+          <BI icon="fa-laptop-code"      top="5%"  left="0%"   rot={-20} size={3.2} delay="f1" />
+          <BI icon="fa-server"           top="38%" left="3%"   rot={30}  size={2.2} delay="f3" />
+          <BI icon="fa-terminal"         top="70%" left="8%"   rot={-40} size={1.6} delay="f5" color="var(--violet)" />
+          <BI icon="fa-cloud-upload-alt" top="10%" right="2%"  rot={15}  size={2.2} delay="f2" />
+          <BI icon="fa-cogs"             top="48%" right="1%"  rot={40}  size={3.2} delay="f4" color="var(--violet)" />
+          <BI icon="fa-sitemap"          top="80%" right="12%" rot={-25} size={1.6} delay="f6" />
+          <BI icon="fa-code"             top="90%" left="25%"  rot={55}  size={1.3} delay="f7" color="var(--green)" />
         </div>
         <div className="container services-layout" style={{ position: 'relative', zIndex: 1 }}>
           <div className="services-sticky reveal">
@@ -281,14 +303,14 @@ export default function Home() {
       {/* ── RAG FLOW — data pipeline icons ── */}
       <section className="section ragflow-section has-bg-icons" id="ragflow">
         <div className="section-bg" aria-hidden>
-          <i className="fas fa-project-diagram sz-xl r-n20 f1 c-blue"  style={{ top:'8%',  left:'1%'  }} />
-          <i className="fas fa-vector-square  sz-lg r-30  f3 c-blue"   style={{ top:'45%', left:'3%'  }} />
-          <i className="fas fa-database       sz-md r-n40 f5 c-violet" style={{ top:'78%', left:'10%' }} />
-          <i className="fas fa-brain          sz-xl r-15  f2 c-blue"   style={{ top:'10%', right:'2%' }} />
-          <i className="fas fa-search         sz-lg r-40  f4 c-violet" style={{ top:'50%', right:'1%' }} />
-          <i className="fas fa-comment-dots   sz-md r-n25 f6 c-green"  style={{ top:'82%', right:'8%' }} />
-          <i className="fas fa-cube           sz-sm r-55  f7 c-blue"   style={{ top:'30%', left:'20%' }} />
-          <i className="fas fa-filter         sz-md r-n15 f8 c-violet" style={{ top:'62%', right:'22%'}} />
+          <BI icon="fa-project-diagram" top="8%"  left="1%"   rot={-20} size={3.2} delay="f1" />
+          <BI icon="fa-vector-square"   top="45%" left="3%"   rot={30}  size={2.2} delay="f3" />
+          <BI icon="fa-database"        top="78%" left="10%"  rot={-40} size={1.6} delay="f5" color="var(--violet)" />
+          <BI icon="fa-brain"           top="10%" right="2%"  rot={15}  size={2.2} delay="f2" />
+          <BI icon="fa-search"          top="50%" right="1%"  rot={40}  size={3.2} delay="f4" color="var(--violet)" />
+          <BI icon="fa-comment-dots"    top="82%" right="8%"  rot={-25} size={1.6} delay="f6" color="var(--green)" />
+          <BI icon="fa-cube"            top="30%" left="20%"  rot={55}  size={1.3} delay="f7" />
+          <BI icon="fa-filter"          top="62%" right="22%" rot={-15} size={1.6} delay="f8" color="var(--violet)" />
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-head center reveal">
@@ -332,12 +354,12 @@ export default function Home() {
       {/* ── CLIENTS — business icons ── */}
       <section className="section has-bg-icons" id="clients">
         <div className="section-bg" aria-hidden>
-          <i className="fas fa-handshake   sz-xl r-n20 f1 c-violet" style={{ top:'8%',  left:'1%'  }} />
-          <i className="fas fa-briefcase   sz-lg r-30  f3 c-blue"   style={{ top:'55%', left:'4%'  }} />
-          <i className="fas fa-building    sz-md r-n40 f5 c-blue"   style={{ top:'82%', left:'14%' }} />
-          <i className="fas fa-award       sz-xl r-15  f2 c-violet" style={{ top:'12%', right:'2%' }} />
-          <i className="fas fa-users       sz-lg r-40  f4 c-blue"   style={{ top:'50%', right:'1%' }} />
-          <i className="fas fa-star        sz-md r-n25 f6 c-violet" style={{ top:'80%', right:'10%'}} />
+          <BI icon="fa-handshake" top="8%"  left="1%"   rot={-20} size={3.2} delay="f1" color="var(--violet)" />
+          <BI icon="fa-briefcase" top="55%" left="4%"   rot={30}  size={2.2} delay="f3" />
+          <BI icon="fa-building"  top="82%" left="14%"  rot={-40} size={1.6} delay="f5" />
+          <BI icon="fa-award"     top="12%" right="2%"  rot={15}  size={2.2} delay="f2" color="var(--violet)" />
+          <BI icon="fa-users"     top="50%" right="1%"  rot={40}  size={3.2} delay="f4" />
+          <BI icon="fa-star"      top="80%" right="10%" rot={-25} size={1.6} delay="f6" color="var(--violet)" />
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-head reveal">

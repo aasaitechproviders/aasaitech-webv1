@@ -177,11 +177,11 @@ ul { list-style: none; }
 /* ── Float animation ── */
 @keyframes floatY {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50%       { transform: translateY(-16px); }
 }
 @keyframes floatYSlow {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-14px) rotate(3deg); }
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-22px); }
 }
 @keyframes pulse-ring {
   0% { box-shadow: 0 0 0 0 rgba(43, 36, 232, 0.25); }
@@ -216,7 +216,7 @@ ul { list-style: none; }
 .section-bg i {
   position: absolute;
   font-size: 2rem;
-  opacity: 0.045;
+  opacity: 0.1;
   color: var(--blue);
   line-height: 1;
 }
@@ -232,15 +232,15 @@ ul { list-style: none; }
 .section-bg .r-70  { transform: rotate(70deg);  }
 .section-bg .r-n60 { transform: rotate(-60deg); }
 
-/* animated versions */
-.section-bg .f1 { animation: floatYSlow 8s  ease-in-out infinite 0s;   }
-.section-bg .f2 { animation: floatYSlow 10s ease-in-out infinite 1.5s; }
-.section-bg .f3 { animation: floatYSlow 7s  ease-in-out infinite 3s;   }
-.section-bg .f4 { animation: floatYSlow 11s ease-in-out infinite 0.8s; }
-.section-bg .f5 { animation: floatYSlow 9s  ease-in-out infinite 2.2s; }
-.section-bg .f6 { animation: floatYSlow 6s  ease-in-out infinite 4s;   }
-.section-bg .f7 { animation: floatYSlow 12s ease-in-out infinite 1s;   }
-.section-bg .f8 { animation: floatYSlow 8s  ease-in-out infinite 5s;   }
+/* animated versions — faster durations, more visible movement */
+.section-bg .f1, .section-bg span.f1 { animation: floatYSlow 4.5s ease-in-out infinite 0s;   }
+.section-bg .f2, .section-bg span.f2 { animation: floatYSlow 5.5s ease-in-out infinite 0.8s; }
+.section-bg .f3, .section-bg span.f3 { animation: floatYSlow 4.0s ease-in-out infinite 1.6s; }
+.section-bg .f4, .section-bg span.f4 { animation: floatYSlow 6.0s ease-in-out infinite 0.4s; }
+.section-bg .f5, .section-bg span.f5 { animation: floatYSlow 5.0s ease-in-out infinite 1.2s; }
+.section-bg .f6, .section-bg span.f6 { animation: floatYSlow 3.5s ease-in-out infinite 2.0s; }
+.section-bg .f7, .section-bg span.f7 { animation: floatYSlow 6.5s ease-in-out infinite 0.6s; }
+.section-bg .f8, .section-bg span.f8 { animation: floatYSlow 4.8s ease-in-out infinite 2.5s; }
 
 /* size helpers */
 .section-bg .sz-sm  { font-size: 1.4rem; }

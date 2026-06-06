@@ -40,34 +40,46 @@ const PRODUCT_BG_ICONS = {
 }
 
 // Reusable floating bg icon grid
+// Uses wrapper span for rotation + inner i for float animation (can't combine on same element)
 function BgIcons({ icons, color = 'var(--p-color)' }) {
   const positions = [
-    { top: '6%',  left: '1%',   rot: -18, sz: 'xl', f: 'f1' },
-    { top: '28%', left: '3%',   rot:  28, sz: 'lg', f: 'f3' },
-    { top: '55%', left: '1%',   rot: -38, sz: 'md', f: 'f5' },
-    { top: '78%', left: '12%',  rot:  15, sz: 'lg', f: 'f7' },
-    { top: '90%', left: '30%',  rot: -55, sz: 'sm', f: 'f2' },
-    { top: '8%',  right: '2%',  rot:  22, sz: 'lg', f: 'f4' },
-    { top: '38%', right: '1%',  rot: -42, sz: 'xl', f: 'f6' },
-    { top: '65%', right: '5%',  rot:  60, sz: 'md', f: 'f8' },
-    { top: '85%', right: '18%', rot: -20, sz: 'lg', f: 'f2' },
-    { top: '20%', left: '18%',  rot:  45, sz: 'sm', f: 'f5' },
-    { top: '48%', left: '28%',  rot: -12, sz: 'sm', f: 'f3' },
-    { top: '72%', right: '25%', rot:  35, sz: 'md', f: 'f7' },
+    { top: '6%',  left: '1%',   rot: -18, sz: 3.2, f: 'f1' },
+    { top: '28%', left: '3%',   rot:  28, sz: 2.2, f: 'f3' },
+    { top: '55%', left: '1%',   rot: -38, sz: 1.6, f: 'f5' },
+    { top: '78%', left: '12%',  rot:  15, sz: 2.2, f: 'f7' },
+    { top: '90%', left: '30%',  rot: -55, sz: 1.3, f: 'f2' },
+    { top: '8%',  right: '2%',  rot:  22, sz: 2.2, f: 'f4' },
+    { top: '38%', right: '1%',  rot: -42, sz: 3.2, f: 'f6' },
+    { top: '65%', right: '5%',  rot:  60, sz: 1.6, f: 'f8' },
+    { top: '85%', right: '18%', rot: -20, sz: 2.2, f: 'f2' },
+    { top: '20%', left: '18%',  rot:  45, sz: 1.3, f: 'f5' },
+    { top: '48%', left: '28%',  rot: -12, sz: 1.3, f: 'f3' },
+    { top: '72%', right: '25%', rot:  35, sz: 1.6, f: 'f7' },
   ]
   return (
     <div className="section-bg" aria-hidden>
-      {icons.slice(0, positions.length).map((icon, i) => {
-        const pos = positions[i]
-        const style = {
-          color,
-          transform: `rotate(${pos.rot}deg)`,
-          fontSize: pos.sz === 'xl' ? '3.2rem' : pos.sz === 'lg' ? '2.2rem' : pos.sz === 'md' ? '1.6rem' : '1.2rem',
-          ...( pos.left  !== undefined ? { left:  pos.left  } : {} ),
-          ...( pos.right !== undefined ? { right: pos.right } : {} ),
+      {icons.slice(0, positions.length).map((icon, idx) => {
+        const pos = positions[idx]
+        const wrapStyle = {
+          position: 'absolute',
           top: pos.top,
+          ...(pos.left  !== undefined ? { left:  pos.left  } : {}),
+          ...(pos.right !== undefined ? { right: pos.right } : {}),
+          display: 'inline-flex',
+          transform: `rotate(${pos.rot}deg)`,
+          opacity: 0.1,
+          color,
+          lineHeight: 1,
         }
-        return <i key={i} className={`fas ${icon} ${pos.f}`} style={style} />
+        const iStyle = {
+          fontSize: `${pos.sz}rem`,
+          display: 'block',
+        }
+        return (
+          <span key={idx} style={wrapStyle} className={pos.f}>
+            <i className={`fas ${icon}`} style={iStyle} />
+          </span>
+        )
       })}
     </div>
   )
