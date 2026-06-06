@@ -9,10 +9,19 @@ export default function About() {
   return (
     <div className="sp">
       <SEO title="About" path="/about" description="Aasai Tech is an AI-first software studio in Tamil Nadu — a DPIIT-recognized startup and NVIDIA Inception member building production-grade AI for the world." />
-      <section className="sp-hero">
+      <section className="sp-hero has-bg-icons">
         <div className="sp-hero-bg" aria-hidden />
         <div className="sp-hero-accent" aria-hidden />
-        <div className="container">
+        {/* About page bg icons: team/company/India theme */}
+        <div className="section-bg" aria-hidden>
+          <i className="fas fa-users       f1" style={{ top:'10%', left:'1%',  color:'var(--blue)', opacity:'0.06', fontSize:'3rem',   transform:'rotate(-18deg)' }} />
+          <i className="fas fa-map-marker-alt f3" style={{ top:'50%', left:'3%',  color:'var(--blue)', opacity:'0.05', fontSize:'2.2rem', transform:'rotate(25deg)'  }} />
+          <i className="fas fa-award       f5" style={{ top:'78%', left:'12%', color:'var(--violet)',opacity:'0.05', fontSize:'2.8rem', transform:'rotate(-35deg)' }} />
+          <i className="fas fa-microchip   f2" style={{ top:'12%', right:'2%', color:'var(--blue)', opacity:'0.06', fontSize:'3.2rem', transform:'rotate(22deg)'  }} />
+          <i className="fas fa-rocket      f4" style={{ top:'45%', right:'1%', color:'var(--violet)',opacity:'0.05', fontSize:'2.4rem', transform:'rotate(-42deg)' }} />
+          <i className="fas fa-globe       f6" style={{ top:'80%', right:'10%',color:'var(--blue)', opacity:'0.05', fontSize:'2rem',   transform:'rotate(55deg)'  }} />
+        </div>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <span className="eyebrow">About Aasai Tech</span>
           <h1 className="display-title">An AI-first software studio<br /><span className="text-blue">building from Tamil Nadu.</span></h1>
           <p className="section-sub" style={{ marginTop: '1rem' }}>

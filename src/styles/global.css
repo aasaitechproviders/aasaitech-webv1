@@ -200,3 +200,59 @@ ul { list-style: none; }
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
   html { scroll-behavior: auto; }
 }
+
+/* ============================================================
+   SECTION BACKGROUND ICON SYSTEM
+   Reusable floating, tilted, faint decorative icons
+   ============================================================ */
+
+.section-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.section-bg i {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.045;
+  color: var(--blue);
+  line-height: 1;
+}
+
+/* ---- Rotation helpers ---- */
+.section-bg .r-12  { transform: rotate(12deg);  }
+.section-bg .r-25  { transform: rotate(25deg);  }
+.section-bg .r-n15 { transform: rotate(-15deg); }
+.section-bg .r-40  { transform: rotate(40deg);  }
+.section-bg .r-n30 { transform: rotate(-30deg); }
+.section-bg .r-55  { transform: rotate(55deg);  }
+.section-bg .r-n45 { transform: rotate(-45deg); }
+.section-bg .r-70  { transform: rotate(70deg);  }
+.section-bg .r-n60 { transform: rotate(-60deg); }
+
+/* animated versions */
+.section-bg .f1 { animation: floatYSlow 8s  ease-in-out infinite 0s;   }
+.section-bg .f2 { animation: floatYSlow 10s ease-in-out infinite 1.5s; }
+.section-bg .f3 { animation: floatYSlow 7s  ease-in-out infinite 3s;   }
+.section-bg .f4 { animation: floatYSlow 11s ease-in-out infinite 0.8s; }
+.section-bg .f5 { animation: floatYSlow 9s  ease-in-out infinite 2.2s; }
+.section-bg .f6 { animation: floatYSlow 6s  ease-in-out infinite 4s;   }
+.section-bg .f7 { animation: floatYSlow 12s ease-in-out infinite 1s;   }
+.section-bg .f8 { animation: floatYSlow 8s  ease-in-out infinite 5s;   }
+
+/* size helpers */
+.section-bg .sz-sm  { font-size: 1.4rem; }
+.section-bg .sz-md  { font-size: 2.2rem; }
+.section-bg .sz-lg  { font-size: 3rem;   }
+.section-bg .sz-xl  { font-size: 4rem;   }
+
+/* color tint helpers — inherits opacity from parent */
+.section-bg .c-blue   { color: var(--blue);   }
+.section-bg .c-violet { color: var(--violet); }
+.section-bg .c-green  { color: var(--green);  }
+.section-bg .c-orange { color: var(--orange); }
+
+/* sections with bg need position:relative */
+.has-bg-icons { position: relative; overflow: hidden; }

@@ -11,6 +11,68 @@ const fadeUp = {
   show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.07, ease: [0.2, 0.7, 0.2, 1] } }),
 }
 
+// Per-product background icon sets
+const PRODUCT_BG_ICONS = {
+  'boutique-ai': {
+    hero:     ['fa-shirt','fa-camera','fa-palette','fa-mobile-alt','fa-star','fa-image','fa-magic'],
+    problems: ['fa-shopping-bag','fa-undo','fa-clock','fa-comment-slash','fa-heart-broken','fa-tag'],
+    features: ['fa-camera','fa-wand-magic-sparkles','fa-tshirt','fa-palette','fa-star','fa-share-alt'],
+    audience: ['fa-store','fa-instagram','fa-whatsapp','fa-gem','fa-child','fa-shoe-prints'],
+  },
+  'smartedu': {
+    hero:     ['fa-graduation-cap','fa-book','fa-school','fa-chalkboard-teacher','fa-atom','fa-calculator','fa-pencil-ruler'],
+    problems: ['fa-book-open','fa-clock','fa-file-pdf','fa-question-circle','fa-search','fa-language'],
+    features: ['fa-brain','fa-upload','fa-users','fa-chart-bar','fa-language','fa-lock'],
+    audience: ['fa-school','fa-user-tie','fa-chalkboard-teacher','fa-user-graduate','fa-handshake','fa-globe'],
+  },
+  'aasai-tech-ai': {
+    hero:     ['fa-comments','fa-robot','fa-brain','fa-bolt','fa-image','fa-code','fa-cloud'],
+    problems: ['fa-history','fa-download','fa-key','fa-question','fa-lock','fa-wifi'],
+    features: ['fa-bolt','fa-image','fa-history','fa-chart-line','fa-palette','fa-keyboard'],
+    audience: ['fa-book','fa-briefcase','fa-code','fa-globe','fa-mobile-alt','fa-lightbulb'],
+  },
+  'supportgent': {
+    hero:     ['fa-headset','fa-comments','fa-whatsapp','fa-instagram','fa-envelope','fa-robot','fa-store'],
+    problems: ['fa-moon','fa-repeat','fa-inbox','fa-puzzle-piece','fa-cart-shopping','fa-language'],
+    features: ['fa-tools','fa-brain','fa-shopping-cart','fa-satellite-dish','fa-inbox','fa-globe'],
+    audience: ['fa-store','fa-cut','fa-puzzle-piece','fa-comment','fa-chart-line','fa-headset'],
+  },
+}
+
+// Reusable floating bg icon grid
+function BgIcons({ icons, color = 'var(--p-color)' }) {
+  const positions = [
+    { top: '6%',  left: '1%',   rot: -18, sz: 'xl', f: 'f1' },
+    { top: '28%', left: '3%',   rot:  28, sz: 'lg', f: 'f3' },
+    { top: '55%', left: '1%',   rot: -38, sz: 'md', f: 'f5' },
+    { top: '78%', left: '12%',  rot:  15, sz: 'lg', f: 'f7' },
+    { top: '90%', left: '30%',  rot: -55, sz: 'sm', f: 'f2' },
+    { top: '8%',  right: '2%',  rot:  22, sz: 'lg', f: 'f4' },
+    { top: '38%', right: '1%',  rot: -42, sz: 'xl', f: 'f6' },
+    { top: '65%', right: '5%',  rot:  60, sz: 'md', f: 'f8' },
+    { top: '85%', right: '18%', rot: -20, sz: 'lg', f: 'f2' },
+    { top: '20%', left: '18%',  rot:  45, sz: 'sm', f: 'f5' },
+    { top: '48%', left: '28%',  rot: -12, sz: 'sm', f: 'f3' },
+    { top: '72%', right: '25%', rot:  35, sz: 'md', f: 'f7' },
+  ]
+  return (
+    <div className="section-bg" aria-hidden>
+      {icons.slice(0, positions.length).map((icon, i) => {
+        const pos = positions[i]
+        const style = {
+          color,
+          transform: `rotate(${pos.rot}deg)`,
+          fontSize: pos.sz === 'xl' ? '3.2rem' : pos.sz === 'lg' ? '2.2rem' : pos.sz === 'md' ? '1.6rem' : '1.2rem',
+          ...( pos.left  !== undefined ? { left:  pos.left  } : {} ),
+          ...( pos.right !== undefined ? { right: pos.right } : {} ),
+          top: pos.top,
+        }
+        return <i key={i} className={`fas ${icon} ${pos.f}`} style={style} />
+      })}
+    </div>
+  )
+}
+
 export default function ProductPage() {
   const { slug } = useParams()
   const p = PRODUCTS.find((x) => x.slug === slug)
@@ -21,6 +83,7 @@ export default function ProductPage() {
 
   const others = PRODUCTS.filter((x) => x.slug !== slug).slice(0, 3)
   const accent = { '--p-color': p.color, '--p-soft': p.soft }
+  const bgIcons = PRODUCT_BG_ICONS[p.slug] || PRODUCT_BG_ICONS['aasai-tech-ai']
 
   return (
     <div className="pp" style={accent}>
@@ -30,8 +93,9 @@ export default function ProductPage() {
         path={`/products/${p.slug}`}
       />
       {/* Hero */}
-      <section className="pp-hero">
+      <section className="pp-hero has-bg-icons">
         <div className="pp-hero-bg" aria-hidden />
+        <BgIcons icons={bgIcons.hero} color={p.color} />
         <div className="pp-hero-bg-icons" aria-hidden>
           <i className={`fas ${p.icon}`} />
           <i className="fas fa-brain" />
@@ -102,8 +166,9 @@ export default function ProductPage() {
 
       {/* Problems it solves */}
       {p.problems && (
-        <section className="section pp-problems-section">
-          <div className="container">
+        <section className="section pp-problems-section has-bg-icons">
+          <BgIcons icons={bgIcons.problems} color={p.color} />
+          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="section-head center reveal">
               <span className="eyebrow">The problem</span>
               <h2 className="display-title">Real problems, <em>solved</em></h2>
@@ -151,10 +216,11 @@ export default function ProductPage() {
         </section>
       )}
 
-      {/* Audience (BoutiqueAI) */}
+      {/* Audience */}
       {p.audience && (
-        <section className="section">
-          <div className="container">
+        <section className="section has-bg-icons">
+          <BgIcons icons={bgIcons.audience} color={p.color} />
+          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="section-head center reveal">
               <span className="eyebrow">Who it's for</span>
               <h2 className="display-title">Built for the people<br />who'll put it to work</h2>
@@ -183,8 +249,9 @@ export default function ProductPage() {
       )}
 
       {/* Features */}
-      <section className="section pp-feat-section">
-        <div className="container">
+      <section className="section pp-feat-section has-bg-icons">
+        <BgIcons icons={bgIcons.features} color={p.color} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-head center reveal">
             <span className="eyebrow">Features</span>
             <h2 className="display-title">Everything you need,<br />nothing you don't</h2>

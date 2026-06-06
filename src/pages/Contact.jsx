@@ -51,9 +51,18 @@ export default function Contact() {
   return (
     <div className="sp">
       <SEO title="Contact" path="/contact" description="Get in touch with Aasai Tech for a product demo or to discuss your AI project. We reply within 24 hours on business days." />
-      <section className="sp-hero">
+      <section className="sp-hero has-bg-icons">
         <div className="sp-hero-bg" aria-hidden />
-        <div className="container">
+        {/* Contact page bg icons: communication theme */}
+        <div className="section-bg" aria-hidden>
+          <i className="fas fa-envelope    f1" style={{ top:'10%', left:'1%',  color:'var(--blue)', opacity:'0.06', fontSize:'3rem',   transform:'rotate(-18deg)' }} />
+          <i className="fas fa-phone-alt   f3" style={{ top:'48%', left:'3%',  color:'var(--blue)', opacity:'0.05', fontSize:'2.2rem', transform:'rotate(28deg)'  }} />
+          <i className="fas fa-comment-dots f5" style={{ top:'80%', left:'12%', color:'var(--violet)',opacity:'0.05', fontSize:'2.8rem', transform:'rotate(-35deg)' }} />
+          <i className="fas fa-headset     f2" style={{ top:'12%', right:'2%', color:'var(--blue)', opacity:'0.06', fontSize:'3.2rem', transform:'rotate(22deg)'  }} />
+          <i className="fas fa-paper-plane f4" style={{ top:'50%', right:'1%', color:'var(--violet)',opacity:'0.05', fontSize:'2.4rem', transform:'rotate(-42deg)' }} />
+          <i className="fas fa-map-marker-alt f6" style={{ top:'78%', right:'10%',color:'var(--blue)', opacity:'0.05', fontSize:'2rem', transform:'rotate(55deg)'  }} />
+        </div>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <span className="eyebrow">Contact</span>
           <h1 className="display-title">Let's build your<br /><span className="text-blue">AI advantage.</span></h1>
           <p className="section-sub" style={{ marginTop: '0.75rem' }}>

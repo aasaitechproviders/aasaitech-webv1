@@ -25,15 +25,19 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="hero">
         <div className="hero-bg-img" aria-hidden />
-        <div className="hero-bg-icons" aria-hidden>
-          <i className="fas fa-brain" />
-          <i className="fas fa-microchip" />
-          <i className="fas fa-robot" />
-          <i className="fas fa-network-wired" />
-          <i className="fas fa-database" />
-          <i className="fas fa-code" />
-          <i className="fas fa-cloud" />
+        {/* Hero bg icons: AI/tech theme */}
+        <div className="section-bg" aria-hidden>
+          <i className="fas fa-brain sz-xl r-n15 f1 c-blue"   style={{ top:'8%',  left:'2%'  }} />
+          <i className="fas fa-microchip sz-lg r-25 f2 c-blue" style={{ top:'28%', left:'8%'  }} />
+          <i className="fas fa-robot sz-md r-n30 f3 c-violet"  style={{ top:'60%', left:'3%'  }} />
+          <i className="fas fa-code sz-sm r-40 f4 c-blue"      style={{ top:'80%', left:'18%' }} />
+          <i className="fas fa-network-wired sz-lg r-12 f5 c-blue"  style={{ top:'15%', right:'6%'  }} />
+          <i className="fas fa-database sz-md r-n45 f6 c-violet"     style={{ top:'48%', right:'3%'  }} />
+          <i className="fas fa-cloud sz-xl r-55 f7 c-blue"           style={{ top:'70%', right:'12%' }} />
+          <i className="fas fa-code-branch sz-sm r-n15 f8 c-green"   style={{ top:'40%', left:'22%'  }} />
+          <i className="fas fa-atom sz-md r-25 f2 c-violet"          style={{ top:'88%', right:'25%' }} />
         </div>
+
         <div className="container hero-inner">
           <motion.div initial="hidden" animate="show" className="hero-left">
             <motion.div variants={fadeUp} custom={0} className="hero-tag">
@@ -121,8 +125,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS ── */}
-      <section className="stats-section">
+      {/* ── STATS — numbers/growth icons ── */}
+      <section className="stats-section has-bg-icons">
+        <div className="section-bg" aria-hidden>
+          <i className="fas fa-chart-line sz-xl r-12 f1 c-blue"     style={{ top:'10%',  left:'1%'  }} />
+          <i className="fas fa-chart-bar  sz-lg r-n25 f3 c-blue"    style={{ top:'50%',  left:'6%'  }} />
+          <i className="fas fa-trophy    sz-md r-40 f5 c-violet"    style={{ top:'70%',  left:'22%' }} />
+          <i className="fas fa-chart-pie sz-lg r-n15 f2 c-blue"     style={{ top:'15%',  right:'4%' }} />
+          <i className="fas fa-rocket    sz-xl r-25 f4 c-violet"    style={{ top:'55%',  right:'2%' }} />
+          <i className="fas fa-star      sz-sm r-55 f6 c-blue"      style={{ top:'80%',  right:'18%'}} />
+        </div>
         <div className="container">
           <div className="stats-strip">
             {STATS.map((s, i) => (
@@ -135,9 +147,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PRODUCTS ── */}
-      <section className="section" id="products">
-        <div className="container">
+      {/* ── PRODUCTS — product/app icons ── */}
+      <section className="section has-bg-icons" id="products">
+        <div className="section-bg" aria-hidden>
+          <i className="fas fa-shirt      sz-xl r-n20 f1 c-violet"  style={{ top:'5%',   left:'0%'  }} />
+          <i className="fas fa-graduation-cap sz-lg r-30 f3 c-blue" style={{ top:'35%',  left:'5%'  }} />
+          <i className="fas fa-comments   sz-md r-n40 f5 c-green"   style={{ top:'65%',  left:'1%'  }} />
+          <i className="fas fa-headset    sz-lg r-15 f2 c-violet"   style={{ top:'85%',  left:'15%' }} />
+          <i className="fas fa-store      sz-xl r-n25 f4 c-blue"    style={{ top:'8%',   right:'1%' }} />
+          <i className="fas fa-mobile-alt sz-lg r-40 f6 c-violet"   style={{ top:'40%',  right:'3%' }} />
+          <i className="fas fa-robot      sz-md r-n15 f7 c-blue"    style={{ top:'72%',  right:'8%' }} />
+          <i className="fas fa-wand-magic-sparkles sz-sm r-55 f8 c-violet" style={{ top:'90%', right:'20%' }} />
+        </div>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="products-top reveal">
             <div>
               <span className="eyebrow">Our AI Products</span>
@@ -163,9 +185,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PROBLEM → SOLUTION ── */}
-      <section className="section problem-section">
-        <div className="container">
+      {/* ── PROBLEM → SOLUTION — pain/fix icons ── */}
+      <section className="section problem-section has-bg-icons">
+        <div className="section-bg" aria-hidden>
+          <i className="fas fa-times-circle sz-xl r-n20 f1 c-orange" style={{ top:'8%',  left:'1%',  color:'var(--orange)', opacity:'0.04' }} />
+          <i className="fas fa-box-open    sz-lg r-30  f3 c-orange"  style={{ top:'40%', left:'4%',  color:'var(--orange)', opacity:'0.04' }} />
+          <i className="fas fa-check-circle sz-xl r-n15 f2 c-green"  style={{ top:'12%', right:'1%', color:'var(--green)',  opacity:'0.05' }} />
+          <i className="fas fa-bolt        sz-lg r-40  f4 c-green"   style={{ top:'50%', right:'3%', color:'var(--green)',  opacity:'0.05' }} />
+          <i className="fas fa-shield-halved sz-md r-55 f5 c-blue"   style={{ top:'80%', left:'20%', opacity:'0.04' }} />
+          <i className="fas fa-lightbulb   sz-lg r-n30 f6 c-violet"  style={{ top:'75%', right:'15%', color:'var(--violet)', opacity:'0.04' }} />
+        </div>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-head center reveal">
             <span className="eyebrow">Why AI Matters</span>
             <h2 className="display-title">The old way is <em>holding you back</em></h2>
@@ -207,9 +237,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
-      <section className="section" id="services">
-        <div className="container services-layout">
+      {/* ── SERVICES — dev/build icons ── */}
+      <section className="section has-bg-icons" id="services">
+        <div className="section-bg" aria-hidden>
+          <i className="fas fa-laptop-code sz-xl r-n20 f1 c-blue"  style={{ top:'5%',  left:'0%'  }} />
+          <i className="fas fa-server      sz-lg r-30  f3 c-blue"  style={{ top:'38%', left:'3%'  }} />
+          <i className="fas fa-terminal    sz-md r-n40 f5 c-violet" style={{ top:'70%', left:'8%'  }} />
+          <i className="fas fa-cloud-upload-alt sz-xl r-15 f2 c-blue" style={{ top:'10%', right:'2%' }} />
+          <i className="fas fa-cogs        sz-lg r-40  f4 c-violet" style={{ top:'48%', right:'1%' }} />
+          <i className="fas fa-sitemap     sz-md r-n25 f6 c-blue"  style={{ top:'80%', right:'12%'}} />
+          <i className="fas fa-code        sz-sm r-55  f7 c-green" style={{ top:'90%', left:'25%'  }} />
+        </div>
+        <div className="container services-layout" style={{ position: 'relative', zIndex: 1 }}>
           <div className="services-sticky reveal">
             <span className="eyebrow">Services</span>
             <h2 className="display-title">What we<br /><span className="text-blue">build</span><br /><span className="text-dim">for you.</span></h2>
@@ -239,9 +278,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── RAG FLOW ── */}
-      <section className="section ragflow-section" id="ragflow">
-        <div className="container">
+      {/* ── RAG FLOW — data pipeline icons ── */}
+      <section className="section ragflow-section has-bg-icons" id="ragflow">
+        <div className="section-bg" aria-hidden>
+          <i className="fas fa-project-diagram sz-xl r-n20 f1 c-blue"  style={{ top:'8%',  left:'1%'  }} />
+          <i className="fas fa-vector-square  sz-lg r-30  f3 c-blue"   style={{ top:'45%', left:'3%'  }} />
+          <i className="fas fa-database       sz-md r-n40 f5 c-violet" style={{ top:'78%', left:'10%' }} />
+          <i className="fas fa-brain          sz-xl r-15  f2 c-blue"   style={{ top:'10%', right:'2%' }} />
+          <i className="fas fa-search         sz-lg r-40  f4 c-violet" style={{ top:'50%', right:'1%' }} />
+          <i className="fas fa-comment-dots   sz-md r-n25 f6 c-green"  style={{ top:'82%', right:'8%' }} />
+          <i className="fas fa-cube           sz-sm r-55  f7 c-blue"   style={{ top:'30%', left:'20%' }} />
+          <i className="fas fa-filter         sz-md r-n15 f8 c-violet" style={{ top:'62%', right:'22%'}} />
+        </div>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-head center reveal">
             <span className="eyebrow">Under The Hood</span>
             <h2 className="display-title">How <em>RAG technology</em> powers our AI</h2>
@@ -280,9 +329,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CLIENTS ── */}
-      <section className="section" id="clients">
-        <div className="container">
+      {/* ── CLIENTS — business icons ── */}
+      <section className="section has-bg-icons" id="clients">
+        <div className="section-bg" aria-hidden>
+          <i className="fas fa-handshake   sz-xl r-n20 f1 c-violet" style={{ top:'8%',  left:'1%'  }} />
+          <i className="fas fa-briefcase   sz-lg r-30  f3 c-blue"   style={{ top:'55%', left:'4%'  }} />
+          <i className="fas fa-building    sz-md r-n40 f5 c-blue"   style={{ top:'82%', left:'14%' }} />
+          <i className="fas fa-award       sz-xl r-15  f2 c-violet" style={{ top:'12%', right:'2%' }} />
+          <i className="fas fa-users       sz-lg r-40  f4 c-blue"   style={{ top:'50%', right:'1%' }} />
+          <i className="fas fa-star        sz-md r-n25 f6 c-violet" style={{ top:'80%', right:'10%'}} />
+        </div>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-head reveal">
             <span className="eyebrow">Client Work</span>
             <h2 className="display-title">Trusted by organizations<br /><span className="text-dim">that demand</span> <span className="text-blue">excellence.</span></h2>
