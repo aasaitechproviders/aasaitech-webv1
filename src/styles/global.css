@@ -1,7 +1,9 @@
 /* ============================================================
    Aasai Tech — Design System
-   Light / Fluent-inspired, refined editorial accents
+   Helvetica-first, with Inter as fallback, DM Serif for display titles
    ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
 :root {
   /* Neutrals */
   --bg:        #fbfbfd;
@@ -30,10 +32,10 @@
   --nvidia:    #4d7c00;
   --dpiit:     #c44200;
 
-  /* Type */
-  --display: 'Fraunces', Georgia, serif;
-  --sans: 'Hanken Grotesk', system-ui, sans-serif;
-  --mono: 'DM Mono', monospace;
+  /* Type — Helvetica for body/UI, DM Serif Display for big titles */
+  --display: 'DM Serif Display', Georgia, serif;
+  --sans: Helvetica Neue, Helvetica, Arial, 'Inter', system-ui, sans-serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
 
   --r:   12px;
   --r-lg: 20px;
@@ -52,23 +54,12 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
 }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 button { font-family: inherit; cursor: pointer; }
 ul { list-style: none; }
-
-/* Subtle film grain for atmosphere */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.018;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 200px;
-}
 
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(20px, 5vw, 56px); }
 
@@ -85,9 +76,9 @@ body::before {
 }
 .display-title {
   font-family: var(--display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.04;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.08;
   font-size: clamp(2rem, 5vw, 3.4rem);
   color: var(--ink);
 }
@@ -97,6 +88,7 @@ body::before {
   color: var(--ink-2);
   max-width: 560px;
   line-height: 1.7;
+  font-weight: 400;
 }
 
 /* ── Buttons ── */
@@ -110,6 +102,8 @@ body::before {
   font-weight: 600;
   border: 1px solid transparent;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+  font-family: var(--sans);
+  letter-spacing: -0.01em;
 }
 .btn-ink { background: var(--ink); color: #fff; }
 .btn-ink:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(13,15,26,0.22); }
@@ -141,11 +135,6 @@ body::before {
 .chip.dpiit  { color: var(--dpiit);  border-color: rgba(196,66,0,0.25); background: rgba(196,66,0,0.06); }
 
 /* ── Reveal-on-scroll ── */
-/* Reveal-on-scroll — progressive enhancement.
-   Content is fully visible by default (no-JS, crawlers, prerendered HTML,
-   and as a safety net if the observer never runs). The hook adds
-   `reveal-armed` to each element only right before it observes it, so nothing
-   is ever hidden unless JS is actively managing its reveal. */
 .reveal { opacity: 1; transform: none; }
 .reveal.reveal-armed { opacity: 0; transform: translateY(22px); transition: opacity 0.65s cubic-bezier(.2,.7,.2,1), transform 0.65s cubic-bezier(.2,.7,.2,1); }
 .reveal.reveal-armed.in { opacity: 1; transform: none; }

@@ -57,6 +57,7 @@ export const PRODUCTS = [
     soft: 'rgba(124,111,255,0.09)',
     featured: true,
     live: true,
+    heroImg: '/images/boutique-ai-hero.png',
     url: 'https://boutiquesaas.aasaitech.in',
     highlights: [
       { icon: 'fas fa-camera', label: 'Upload a selfie, try on instantly' },
@@ -150,6 +151,7 @@ export const PRODUCTS = [
     color: '#2b24e8',
     soft: 'rgba(43,36,232,0.07)',
     live: true,
+    heroImg: '/images/smartedu-hero.png',
     url: 'https://aasaischool.ai.aasaitech.in',
     short:
       'AI-powered, multi-tenant school management & learning platform. Every school gets its own branded portal with role-based dashboards and a RAG assistant trained on its own study materials.',
@@ -215,6 +217,7 @@ export const PRODUCTS = [
     color: '#1a7a4a',
     soft: 'rgba(26,122,74,0.09)',
     live: true,
+    heroImg: '/images/aasai-ai-hero.png',
     url: 'https://freeai.aasaitech.in',
     short:
       'A free, browser-based AI chat platform with vision, streaming replies, cloud-synced history, and guest mode — instant access to a powerful AI assistant with no downloads or subscriptions.',
@@ -267,6 +270,7 @@ export const PRODUCTS = [
     color: '#5a4ddd',
     soft: 'rgba(90,77,221,0.09)',
     live: true,
+    heroImg: '/images/supportgent-hero.png',
     url: 'https://supportagent.aasaitech.in',
     short:
       'Build intelligent AI agents that answer questions, recommend products, take orders, and auto-reply across website, WhatsApp, Instagram, and email — working 24/7 with no human intervention.',

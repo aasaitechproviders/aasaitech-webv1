@@ -13,7 +13,7 @@
 }
 .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
 .footer-logo img { width: 34px; height: 34px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); }
-.footer-logo span { font-family: var(--display); font-size: 1.25rem; font-weight: 600; color: #fff; }
+.footer-logo span { font-family: var(--sans); font-size: 1.25rem; font-weight: 700; color: #fff; letter-spacing: -0.03em; }
 .footer-logo em { font-style: italic; color: var(--blue-2); }
 .footer-brand p { font-size: 0.9rem; line-height: 1.7; color: #9498a8; max-width: 320px; }
 

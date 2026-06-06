@@ -11,6 +11,7 @@ export default function About() {
       <SEO title="About" path="/about" description="Aasai Tech is an AI-first software studio in Tamil Nadu — a DPIIT-recognized startup and NVIDIA Inception member building production-grade AI for the world." />
       <section className="sp-hero">
         <div className="sp-hero-bg" aria-hidden />
+        <div className="sp-hero-accent" aria-hidden />
         <div className="container">
           <span className="eyebrow">About Aasai Tech</span>
           <h1 className="display-title">An AI-first software studio<br /><span className="text-blue">building from Tamil Nadu.</span></h1>
@@ -30,7 +31,7 @@ export default function About() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="about-img-wrap reveal">
-            <img src="/images/aboutus.jpeg" alt="Aasai Tech team and workspace" />
+            <img src="/images/aboutus.png" alt="Aasai Tech team and workspace" />
           </div>
 
           <div className="stats-strip about-stats reveal">

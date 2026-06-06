@@ -206,6 +206,9 @@ export default function Home() {
             <Link to="/contact" className="btn btn-ink" style={{ marginTop: '2rem' }}>
               Start a Project <i className="fas fa-arrow-right" style={{ fontSize: '0.8rem' }} />
             </Link>
+            <div className="services-img-wrap">
+              <img src="/images/services-illustration.png" alt="AI development team" />
+            </div>
           </div>
           <div className="services-list">
             {SERVICES.map((s) => (

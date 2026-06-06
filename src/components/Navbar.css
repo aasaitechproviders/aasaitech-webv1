@@ -99,12 +99,12 @@
 .nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-logo img { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); object-fit: cover; }
 .nav-logo-name {
-  font-family: var(--display);
+  font-family: var(--sans);
   font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
-.nav-logo-name em { font-style: italic; color: var(--blue); }
+.nav-logo-name em { font-style: italic; color: var(--blue); font-weight: 400; }
 
 /* ── Nav links ── */
 .nav-links { display: flex; align-items: center; gap: 1.9rem; margin-left: 2.75rem; }

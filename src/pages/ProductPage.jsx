@@ -60,26 +60,31 @@ export default function ProductPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="pp-card-ic" style={{ background: p.soft, color: p.color }}>
-                <i className={`fas ${p.icon}`} />
-              </div>
-              <div className="pp-card-name">{p.name}</div>
-              <div className="pp-card-cat">{p.category}</div>
-              {p.metrics ? (
-                <div className="pp-card-metrics">
-                  {p.metrics.map((m, i) => (
-                    <div key={i}>
-                      <b style={{ color: p.color }}>{m.num}</b>
-                      <span>{m.label}</span>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="pp-card-blurb">{p.short}</p>
+              {p.heroImg && (
+                <img src={p.heroImg} alt={`${p.name} screenshot`} className="pp-hero-img" />
               )}
-              <a href={p.url} target="_blank" rel="noreferrer" className="pp-card-url">
-                <i className="fas fa-globe" /> {p.url.replace('https://', '')}
-              </a>
+              <div className="pp-hero-card-body">
+                <div className="pp-card-ic" style={{ background: p.soft, color: p.color }}>
+                  <i className={`fas ${p.icon}`} />
+                </div>
+                <div className="pp-card-name">{p.name}</div>
+                <div className="pp-card-cat">{p.category}</div>
+                {p.metrics ? (
+                  <div className="pp-card-metrics">
+                    {p.metrics.map((m, i) => (
+                      <div key={i}>
+                        <b style={{ color: p.color }}>{m.num}</b>
+                        <span>{m.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="pp-card-blurb">{p.short}</p>
+                )}
+                <a href={p.url} target="_blank" rel="noreferrer" className="pp-card-url">
+                  <i className="fas fa-globe" /> {p.url.replace('https://', '')}
+                </a>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -116,6 +121,11 @@ export default function ProductPage() {
                 {p.steps.length === 4 ? <>Live in four<br />simple steps</> : <>From zero to live<br />in three steps</>}
               </h2>
             </div>
+            {p.slug === 'smartedu' && (
+              <div className="pp-section-img pp-section-img--small reveal">
+                <img src="/images/smartedu-student.png" alt="Student using AI study assistant" />
+              </div>
+            )}
             <div className="pp-steps">
               {p.steps.map((s, i) => (
                 <div className="pp-step reveal" key={i}>
@@ -139,6 +149,16 @@ export default function ProductPage() {
               <span className="eyebrow">Who it's for</span>
               <h2 className="display-title">Built for the people<br />who'll put it to work</h2>
             </div>
+            {p.slug === 'boutique-ai' && (
+              <div className="pp-section-img reveal">
+                <img src="/images/boutique-storefront.png" alt="Indian boutique storefront" />
+              </div>
+            )}
+            {p.slug === 'supportgent' && (
+              <div className="pp-section-img pp-section-img--small reveal">
+                <img src="/images/supportgent-channels.png" alt="SupportGent multi-channel" />
+              </div>
+            )}
             <div className="pp-who-grid">
               {p.audience.map((a, i) => (
                 <div className="pp-who reveal" key={i}>

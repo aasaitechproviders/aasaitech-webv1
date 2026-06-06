@@ -65,6 +65,9 @@ export default function Contact() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container contact-layout">
           <div className="reveal">
+            <div className="contact-img-wrap">
+              <img src="/images/contact-illustration.png" alt="Aasai Tech support" />
+            </div>
             {[
               ['fa-envelope', 'Email', <a href={`mailto:${COMPANY.email}`} key="e">{COMPANY.email}</a>],
               ['fa-phone', 'Phone', <a href={COMPANY.phoneHref} key="p">{COMPANY.phone}</a>],
