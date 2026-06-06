@@ -15,7 +15,7 @@ const fadeUp = {
 
 // Single bg icon: wrapper span handles float animation, inner i holds the icon
 // Separating them means rotation (transform) never conflicts with translateY animation
-function BI({ icon, top, left, right, bottom, rot = 0, size = 2.2, delay = 'f1', color = 'var(--blue)', opacity = 0.055 }) {
+function BI({ icon, top, left, right, bottom, rot = 0, size = 2.2, delay = 'f1', color = 'var(--blue)', opacity = 0.1 }) {
   return (
     <span
       className={delay}
