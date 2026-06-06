@@ -43,8 +43,25 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
+      <section className="section has-bg-icons" style={{ paddingTop: 0 }}>
+        {/* About body icons: studio/tech/India theme */}
+        <div className="section-bg" aria-hidden>
+          {[
+            { icon:'fa-code',       top:'5%',  left:'0.5%', rot:-18, sz:3.2, f:'f1', color:'var(--blue)'   },
+            { icon:'fa-brain',      top:'25%', left:'2%',   rot: 28, sz:2.2, f:'f3', color:'var(--blue)'   },
+            { icon:'fa-server',     top:'50%', left:'0.5%', rot:-38, sz:1.6, f:'f5', color:'var(--violet)' },
+            { icon:'fa-laptop-code',top:'74%', left:'2%',   rot: 15, sz:2.2, f:'f7', color:'var(--blue)'   },
+            { icon:'fa-cloud',      top:'5%',  right:'0.5%',rot: 22, sz:2.2, f:'f4', color:'var(--blue)'   },
+            { icon:'fa-microchip',  top:'30%', right:'1%',  rot:-42, sz:3.2, f:'f6', color:'var(--violet)' },
+            { icon:'fa-cogs',       top:'55%', right:'0.5%',rot: 60, sz:1.6, f:'f8', color:'var(--blue)'   },
+            { icon:'fa-rocket',     top:'78%', right:'4%',  rot:-20, sz:2.2, f:'f2', color:'var(--violet)' },
+          ].map((b, i) => (
+            <span key={i} className={b.f} style={{ position:'absolute', top:b.top, left:b.left, right:b.right, transform:`rotate(${b.rot}deg)`, display:'inline-flex', color:b.color, opacity:0.1, fontSize:`${b.sz}rem` }}>
+              <i className={`fas ${b.icon}`} style={{ display:'block' }} />
+            </span>
+          ))}
+        </div>
+        <div className="container" style={{ position:'relative', zIndex:1 }}>
           <div className="about-img-wrap reveal">
             <img src="/images/aboutus.png" alt="Aasai Tech team and workspace" />
           </div>

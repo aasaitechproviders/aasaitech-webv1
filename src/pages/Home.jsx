@@ -157,7 +157,7 @@ export default function Home() {
           <BI icon="fa-rocket"     top="55%"  right="2%"  rot={25}  size={3.2} delay="f4" color="var(--violet)" />
           <BI icon="fa-star"       top="80%"  right="18%" rot={55}  size={1.3} delay="f6" />
         </div>
-        <div className="container">
+        <div className="container" style={{ position:'relative', zIndex:1 }}>
           <div className="stats-strip">
             {STATS.map((s, i) => (
               <div className="stat-cell reveal" key={i}>
