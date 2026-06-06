@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import useReveal from '../hooks/useReveal.js'
 import SEO from '../components/SEO.jsx'
+import BgIcons from '../components/BgIcons.jsx'
 import { PRODUCTS } from '../data/content.js'
 import './ProductPage.css'
 
@@ -11,85 +12,20 @@ const fadeUp = {
   show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.07, ease: [0.2, 0.7, 0.2, 1] } }),
 }
 
-const PRODUCT_BG_ICONS = {
-  'boutique-ai': {
-    hero:     ['fa-shirt','fa-camera','fa-palette','fa-mobile-alt','fa-star','fa-image','fa-magic','fa-wand-magic-sparkles','fa-tshirt','fa-gem','fa-heart','fa-sparkles'],
-    problems: ['fa-shopping-bag','fa-undo','fa-clock','fa-comment-slash','fa-tag','fa-box-open'],
-    steps:    ['fa-camera','fa-upload','fa-link','fa-share-alt','fa-mobile-alt','fa-check-circle'],
-    audience: ['fa-store','fa-gem','fa-child','fa-shoe-prints','fa-tags','fa-bags-shopping'],
-    features: ['fa-wand-magic-sparkles','fa-palette','fa-chart-bar','fa-lock','fa-download','fa-star'],
-    pricing:  ['fa-tag','fa-credit-card','fa-bolt','fa-gift','fa-percent','fa-award'],
-    usecases: ['fa-whatsapp','fa-instagram','fa-store','fa-child','fa-heart','fa-share'],
-    security: ['fa-lock','fa-shield-halved','fa-user-shield','fa-key'],
-    faq:      ['fa-question-circle','fa-comment-dots','fa-info-circle','fa-lightbulb'],
-    cta:      ['fa-shirt','fa-camera','fa-wand-magic-sparkles','fa-store'],
-  },
-  'smartedu': {
-    hero:     ['fa-graduation-cap','fa-book','fa-school','fa-chalkboard-teacher','fa-atom','fa-calculator','fa-pencil-ruler','fa-microscope','fa-flask','fa-brain','fa-lightbulb','fa-award'],
-    problems: ['fa-book-open','fa-clock','fa-file-pdf','fa-question-circle','fa-search','fa-language'],
-    steps:    ['fa-school','fa-users','fa-upload','fa-comments','fa-check-circle','fa-graduation-cap'],
-    audience: ['fa-school','fa-user-tie','fa-chalkboard-teacher','fa-user-graduate','fa-handshake','fa-globe'],
-    features: ['fa-brain','fa-upload','fa-users','fa-chart-bar','fa-language','fa-lock'],
-    why:      ['fa-graduation-cap','fa-school','fa-globe','fa-shield-halved','fa-users','fa-server'],
-    cta:      ['fa-graduation-cap','fa-book','fa-brain','fa-school'],
-  },
-  'aasai-tech-ai': {
-    hero:     ['fa-comments','fa-robot','fa-brain','fa-bolt','fa-image','fa-code','fa-cloud','fa-keyboard','fa-wifi','fa-microchip','fa-terminal','fa-atom'],
-    problems: ['fa-history','fa-download','fa-key','fa-question','fa-lock','fa-wifi'],
-    steps:    ['fa-user-plus','fa-comments','fa-image','fa-chart-bar','fa-bolt','fa-cloud'],
-    audience: ['fa-book','fa-briefcase','fa-code','fa-globe','fa-mobile-alt','fa-lightbulb'],
-    features: ['fa-bolt','fa-image','fa-history','fa-chart-line','fa-palette','fa-keyboard'],
-    why:      ['fa-robot','fa-globe','fa-shield','fa-download','fa-star','fa-bolt'],
-    cta:      ['fa-robot','fa-brain','fa-comments','fa-bolt'],
-  },
-  'supportgent': {
-    hero:     ['fa-headset','fa-comments','fa-envelope','fa-robot','fa-store','fa-globe','fa-mobile-alt','fa-satellite-dish','fa-chart-line','fa-bell','fa-inbox','fa-bolt'],
-    problems: ['fa-moon','fa-repeat','fa-inbox','fa-puzzle-piece','fa-cart-shopping','fa-language'],
-    steps:    ['fa-robot','fa-book','fa-shopping-cart','fa-rocket','fa-check-circle','fa-headset'],
-    audience: ['fa-store','fa-cut','fa-puzzle-piece','fa-comment','fa-chart-line','fa-headset'],
-    features: ['fa-tools','fa-brain','fa-shopping-cart','fa-satellite-dish','fa-inbox','fa-globe'],
-    pricing:  ['fa-tag','fa-bolt','fa-headset','fa-chart-bar','fa-globe','fa-star'],
-    why:      ['fa-headset','fa-globe','fa-satellite-dish','fa-shield','fa-bolt','fa-robot'],
-    cta:      ['fa-headset','fa-robot','fa-comments','fa-bolt'],
-  },
+const PRODUCT_ICONS = {
+  'boutique-ai':   ['fa-shirt','fa-camera','fa-palette','fa-mobile-alt','fa-star','fa-image','fa-wand-magic-sparkles','fa-gem','fa-heart','fa-sparkles','fa-tshirt','fa-shopping-bag'],
+  'smartedu':      ['fa-graduation-cap','fa-book','fa-school','fa-chalkboard-teacher','fa-atom','fa-calculator','fa-pencil-ruler','fa-microscope','fa-flask','fa-brain','fa-lightbulb','fa-award'],
+  'aasai-tech-ai': ['fa-comments','fa-robot','fa-brain','fa-bolt','fa-image','fa-code','fa-cloud','fa-keyboard','fa-wifi','fa-microchip','fa-terminal','fa-atom'],
+  'supportgent':   ['fa-headset','fa-comments','fa-envelope','fa-robot','fa-store','fa-globe','fa-mobile-alt','fa-satellite-dish','fa-chart-line','fa-bell','fa-inbox','fa-bolt'],
 }
 
-// Positions grid — 12 slots with varied placement, rotation, size, speed
-const POS = [
-  { top:'5%',  left:'0.5%', rot:-18, sz:3.2, f:'f1' },
-  { top:'22%', left:'2%',   rot: 28, sz:2.2, f:'f3' },
-  { top:'44%', left:'0.5%', rot:-38, sz:1.6, f:'f5' },
-  { top:'66%', left:'2%',   rot: 15, sz:2.2, f:'f7' },
-  { top:'84%', left:'10%',  rot:-55, sz:1.3, f:'f2' },
-  { top:'92%', left:'28%',  rot: 35, sz:1.6, f:'f8' },
-  { top:'5%',  right:'0.5%',rot: 22, sz:2.2, f:'f4' },
-  { top:'26%', right:'1%',  rot:-42, sz:3.2, f:'f6' },
-  { top:'50%', right:'0.5%',rot: 60, sz:1.6, f:'f8' },
-  { top:'70%', right:'4%',  rot:-20, sz:2.2, f:'f1' },
-  { top:'88%', right:'16%', rot: 45, sz:1.3, f:'f5' },
-  { top:'38%', left:'46%',  rot:-12, sz:1.3, f:'f3' },
-]
-
-function BgIcons({ icons, color }) {
-  const c = color || 'var(--blue)'
-  return (
-    <div className="section-bg" aria-hidden>
-      {icons.slice(0, POS.length).map((icon, i) => {
-        const p = POS[i]
-        return (
-          <span key={i} className={p.f} style={{
-            position:'absolute', top:p.top,
-            ...(p.left  ? {left:p.left}   : {}),
-            ...(p.right ? {right:p.right} : {}),
-            display:'inline-flex', transform:`rotate(${p.rot}deg)`,
-            opacity:0.1, color:c, lineHeight:1, fontSize:`${p.sz}rem`,
-          }}>
-            <i className={`fas ${icon}`} style={{display:'block'}} />
-          </span>
-        )
-      })}
-    </div>
-  )
+// Each product gets a unique, distinct background icon color
+// Chosen to be on-brand but clearly different from each other
+const PRODUCT_BG_COLOR = {
+  'boutique-ai':   '#c084fc',   // soft lavender-rose — feminine, fashion-forward
+  'smartedu':      '#38bdf8',   // sky blue — fresh, academic, trustworthy
+  'aasai-tech-ai': '#34d399',   // mint green — free, open, tech-fresh
+  'supportgent':   '#fb923c',   // warm amber-orange — energetic, support, action
 }
 
 export default function ProductPage() {
@@ -102,18 +38,21 @@ export default function ProductPage() {
 
   const others = PRODUCTS.filter((x) => x.slug !== slug).slice(0, 3)
   const accent = { '--p-color': p.color, '--p-soft': p.soft }
-  const bg = PRODUCT_BG_ICONS[p.slug] || PRODUCT_BG_ICONS['aasai-tech-ai']
-  const Z = { position:'relative', zIndex:1 }
+  const bgColor = PRODUCT_BG_COLOR[p.slug] || p.color
+  // Override --p-color with the unique bg palette color for buttons too
+  const pageStyle = { '--p-color': bgColor, '--p-soft': p.soft }
+  
+  
 
   return (
-    <div className="pp" style={accent}>
+    <div className="pp" style={pageStyle}>
       <SEO title={`${p.name} — ${p.category}`} description={p.short} path={`/products/${p.slug}`} />
 
       {/* ── HERO ── */}
-      <section className="pp-hero has-bg-icons">
+      <section className="pp-hero ibg">
         <div className="pp-hero-bg" aria-hidden />
-        <BgIcons icons={bg.hero} color={p.color} />
-        <div className="container" style={Z}>
+        <BgIcons icons={PRODUCT_ICONS[p.slug] || PRODUCT_ICONS['aasai-tech-ai']} color={bgColor} />
+        <div className="container" style={{position:'relative',zIndex:1}}>
           <motion.nav initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pp-crumb">
             <Link to="/">Home</Link> <i className="fas fa-chevron-right" /> <Link to="/products">Products</Link>{' '}
             <i className="fas fa-chevron-right" /> <span>{p.name}</span>
@@ -160,9 +99,9 @@ export default function ProductPage() {
 
       {/* ── PROBLEMS ── */}
       {p.problems && (
-        <section className="section pp-problems-section has-bg-icons">
-          <BgIcons icons={bg.problems} color={p.color} />
-          <div className="container" style={Z}>
+        <section className="section pp-problems-section ibg">
+          <BgIcons icons={PRODUCT_ICONS[p.slug] || PRODUCT_ICONS['aasai-tech-ai']} color={bgColor} />
+          <div className="container" style={{position:'relative',zIndex:1}}>
             <div className="section-head center reveal">
               <span className="eyebrow">The problem</span>
               <h2 className="display-title">Real problems, <em>solved</em></h2>
@@ -181,9 +120,9 @@ export default function ProductPage() {
 
       {/* ── HOW IT WORKS ── */}
       {p.steps && (
-        <section className="section pp-steps-section has-bg-icons">
-          <BgIcons icons={bg.steps || bg.hero} color={p.color} />
-          <div className="container" style={Z}>
+        <section className="section pp-steps-section ibg">
+          <BgIcons icons={PRODUCT_ICONS[p.slug] || PRODUCT_ICONS['aasai-tech-ai']} color={bgColor} />
+          <div className="container" style={{position:'relative',zIndex:1}}>
             <div className="section-head center reveal">
               <span className="eyebrow">How it works</span>
               <h2 className="display-title">
@@ -211,9 +150,9 @@ export default function ProductPage() {
 
       {/* ── AUDIENCE ── */}
       {p.audience && (
-        <section className="section has-bg-icons">
-          <BgIcons icons={bg.audience} color={p.color} />
-          <div className="container" style={Z}>
+        <section className="section ibg">
+          <BgIcons icons={PRODUCT_ICONS[p.slug] || PRODUCT_ICONS['aasai-tech-ai']} color={bgColor} />
+          <div className="container" style={{position:'relative',zIndex:1}}>
             <div className="section-head center reveal">
               <span className="eyebrow">Who it's for</span>
               <h2 className="display-title">Built for the people<br />who'll put it to work</h2>
@@ -241,9 +180,9 @@ export default function ProductPage() {
       )}
 
       {/* ── FEATURES ── */}
-      <section className="section pp-feat-section has-bg-icons">
-        <BgIcons icons={bg.features} color={p.color} />
-        <div className="container" style={Z}>
+      <section className="section pp-feat-section ibg">
+        <BgIcons icons={PRODUCT_ICONS[p.slug] || PRODUCT_ICONS['aasai-tech-ai']} color={bgColor} />
+        <div className="container" style={{position:'relative',zIndex:1}}>
           <div className="section-head center reveal">
             <span className="eyebrow">Features</span>
             <h2 className="display-title">Everything you need,<br />nothing you don't</h2>
@@ -259,47 +198,11 @@ export default function ProductPage() {
         </div>
       </section>
 
-      {/* ── PRICING ── */}
-      {p.pricing && (
-        <section className="section pp-pricing-section has-bg-icons">
-          <BgIcons icons={bg.pricing || bg.features} color={p.color} />
-          <div className="container" style={Z}>
-            <div className="section-head center reveal">
-              <span className="eyebrow">Pricing</span>
-              <h2 className="display-title">{p.featured ? "Start free. Scale when you're ready." : 'Plans that scale with you'}</h2>
-              <p className="section-sub">Choose the tier that fits, and upgrade anytime.</p>
-            </div>
-            <div className="pp-plans">
-              {p.pricing.map((plan, i) => (
-                <div className={`pp-plan reveal ${plan.popular ? 'popular' : ''}`} key={i}>
-                  {plan.popular && <div className="pp-plan-badge">Most Popular</div>}
-                  <div className="pp-plan-name">{plan.name}</div>
-                  <div className="pp-plan-price">
-                    <span className="pp-amt">{plan.price}</span>
-                    {plan.period && <span className="pp-per">{plan.period}</span>}
-                  </div>
-                  <div className="pp-plan-note">{plan.note}</div>
-                  <div className="pp-plan-credits">⚡ {plan.credits}</div>
-                  <hr className="divider" />
-                  <ul className="pp-plan-feats">
-                    {plan.feats.map((f, j) => <li key={j}><i className="fas fa-check" /> {f}</li>)}
-                  </ul>
-                  <a href={p.url} target="_blank" rel="noreferrer" className={`btn ${plan.popular ? 'pp-btn-primary' : 'btn-outline'} pp-plan-cta`}>
-                    View plan <i className="fas fa-arrow-up-right-from-square" style={{ fontSize:'0.7rem' }} />
-                  </a>
-                </div>
-              ))}
-            </div>
-            {p.pricingNote && <p className="pp-pricing-foot">{p.pricingNote}</p>}
-          </div>
-        </section>
-      )}
-
       {/* ── WHY THIS PRODUCT ── */}
       {p.why && (
-        <section className="section pp-why-section has-bg-icons">
-          <BgIcons icons={bg.why || bg.features} color={p.color} />
-          <div className="container" style={Z}>
+        <section className="section pp-why-section ibg">
+          <BgIcons icons={PRODUCT_ICONS[p.slug] || PRODUCT_ICONS['aasai-tech-ai']} color={bgColor} />
+          <div className="container" style={{position:'relative',zIndex:1}}>
             <div className="pp-why-wrap reveal">
               <div className="pp-why-head">
                 <span className="eyebrow">Why {p.name}</span>
@@ -317,9 +220,9 @@ export default function ProductPage() {
 
       {/* ── USE CASES ── */}
       {p.useCases && (
-        <section className="section has-bg-icons">
-          <BgIcons icons={bg.usecases || bg.audience} color={p.color} />
-          <div className="container" style={Z}>
+        <section className="section ibg">
+          <BgIcons icons={PRODUCT_ICONS[p.slug] || PRODUCT_ICONS['aasai-tech-ai']} color={bgColor} />
+          <div className="container" style={{position:'relative',zIndex:1}}>
             <div className="section-head center reveal">
               <span className="eyebrow">Real-world use cases</span>
               <h2 className="display-title">How {p.name} solves<br />real problems</h2>
@@ -338,9 +241,9 @@ export default function ProductPage() {
 
       {/* ── SECURITY ── */}
       {p.security && (
-        <section className="section pp-sec-section has-bg-icons">
-          <BgIcons icons={bg.security || ['fa-lock','fa-shield-halved','fa-user-shield','fa-key','fa-database','fa-cloud']} color={p.color} />
-          <div className="container" style={Z}>
+        <section className="section pp-sec-section ibg">
+          <BgIcons icons={PRODUCT_ICONS[p.slug] || PRODUCT_ICONS['aasai-tech-ai']} color={bgColor} />
+          <div className="container" style={{position:'relative',zIndex:1}}>
             <div className="section-head center reveal">
               <span className="eyebrow">Security & privacy</span>
               <h2 className="display-title">Customer data is safe</h2>
@@ -359,9 +262,9 @@ export default function ProductPage() {
 
       {/* ── TECH STACK ── */}
       {p.tech && (
-        <section className="section pp-tech-section has-bg-icons">
-          <BgIcons icons={['fa-microchip','fa-server','fa-cloud','fa-code','fa-database','fa-network-wired','fa-atom','fa-cogs','fa-terminal','fa-layer-group','fa-bolt','fa-shield']} color={p.color} />
-          <div className="container reveal" style={Z}>
+        <section className="section pp-tech-section ibg">
+          <BgIcons icons={PRODUCT_ICONS[p.slug] || PRODUCT_ICONS['aasai-tech-ai']} color={bgColor} />
+          <div className="container reveal" style={{position:'relative',zIndex:1}}>
             <span className="eyebrow" style={{ textAlign:'center', display:'block' }}>Built on</span>
             <div className="pp-tech-row">
               {p.tech.map((t) => (
@@ -374,9 +277,9 @@ export default function ProductPage() {
 
       {/* ── FAQ ── */}
       {p.faq && (
-        <section className="section pp-faq-section has-bg-icons">
-          <BgIcons icons={bg.faq || ['fa-question-circle','fa-comment-dots','fa-info-circle','fa-lightbulb','fa-circle-info','fa-comments']} color={p.color} />
-          <div className="container" style={Z}>
+        <section className="section pp-faq-section ibg">
+          <BgIcons icons={PRODUCT_ICONS[p.slug] || PRODUCT_ICONS['aasai-tech-ai']} color={bgColor} />
+          <div className="container" style={{position:'relative',zIndex:1}}>
             <div className="section-head center reveal">
               <span className="eyebrow">FAQ</span>
               <h2 className="display-title">Straight answers</h2>
@@ -396,9 +299,9 @@ export default function ProductPage() {
       )}
 
       {/* ── CTA ── */}
-      <section className="section has-bg-icons">
-        <BgIcons icons={bg.cta || bg.hero.slice(0,6)} color={p.color} />
-        <div className="container" style={Z}>
+      <section className="section ibg">
+        <BgIcons icons={PRODUCT_ICONS[p.slug] || PRODUCT_ICONS['aasai-tech-ai']} color={bgColor} />
+        <div className="container" style={{position:'relative',zIndex:1}}>
           <div className="pp-cta-band reveal">
             <h2 className="display-title" style={{ color:'#fff' }}>
               Ready to put <em style={{ color:p.color }}>{p.name}</em> to work?
@@ -419,9 +322,9 @@ export default function ProductPage() {
       </section>
 
       {/* ── MORE PRODUCTS ── */}
-      <section className="section pp-more-section has-bg-icons">
-        <BgIcons icons={['fa-shirt','fa-graduation-cap','fa-comments','fa-headset','fa-robot','fa-store','fa-brain','fa-bolt','fa-mobile-alt','fa-cloud','fa-code','fa-star']} color="var(--blue)" />
-        <div className="container" style={Z}>
+      <section className="section pp-more-section ibg">
+        <BgIcons icons={['fa-shirt','fa-graduation-cap','fa-comments','fa-headset','fa-robot','fa-store','fa-brain','fa-bolt','fa-mobile-alt','fa-cloud','fa-code','fa-star']} color={bgColor} />
+        <div className="container" style={{position:'relative',zIndex:1}}>
           <div className="section-head reveal">
             <span className="eyebrow">More from Aasai Tech</span>
             <h2 className="display-title">Explore other products</h2>

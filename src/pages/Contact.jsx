@@ -2,6 +2,7 @@ import { useState } from 'react'
 import useReveal from '../hooks/useReveal.js'
 import SEO from '../components/SEO.jsx'
 import { COMPANY, PRODUCTS } from '../data/content.js'
+import BgIcons from '../components/BgIcons.jsx'
 import './SimplePage.css'
 
 // Email backend used by the existing aasaitech.in site
@@ -51,23 +52,9 @@ export default function Contact() {
   return (
     <div className="sp">
       <SEO title="Contact" path="/contact" description="Get in touch with Aasai Tech for a product demo or to discuss your AI project. We reply within 24 hours on business days." />
-      <section className="sp-hero has-bg-icons">
+      <section className="sp-hero ibg">
         <div className="sp-hero-bg" aria-hidden />
-        {/* Contact page bg icons: communication theme */}
-        <div className="section-bg" aria-hidden>
-          {[
-            { icon:'fa-envelope',       top:'10%', left:'1%',   rot:-18, size:3.2, delay:'f1', color:'var(--blue)'   },
-            { icon:'fa-phone-alt',      top:'48%', left:'3%',   rot:28,  size:2.2, delay:'f3', color:'var(--blue)'   },
-            { icon:'fa-comment-dots',   top:'80%', left:'12%',  rot:-35, size:2.8, delay:'f5', color:'var(--violet)' },
-            { icon:'fa-headset',        top:'12%', right:'2%',  rot:22,  size:3.2, delay:'f2', color:'var(--blue)'   },
-            { icon:'fa-paper-plane',    top:'50%', right:'1%',  rot:-42, size:2.4, delay:'f4', color:'var(--violet)' },
-            { icon:'fa-map-marker-alt', top:'78%', right:'10%', rot:55,  size:2.0, delay:'f6', color:'var(--blue)'   },
-          ].map((b, i) => (
-            <span key={i} className={b.delay} style={{ position:'absolute', top:b.top, left:b.left, right:b.right, transform:`rotate(${b.rot}deg)`, display:'inline-flex', color:b.color, opacity:0.1, fontSize:`${b.size}rem` }}>
-              <i className={`fas ${b.icon}`} />
-            </span>
-          ))}
-        </div>
+        <BgIcons icons={['fa-envelope','fa-phone-alt','fa-comment-dots','fa-headset','fa-paper-plane','fa-map-marker-alt','fa-clock','fa-bolt','fa-comments','fa-inbox','fa-at','fa-satellite-dish']} color="var(--blue)" />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <span className="eyebrow">Contact</span>
           <h1 className="display-title">Let's build your<br /><span className="text-blue">AI advantage.</span></h1>
@@ -77,7 +64,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="section has-bg-icons" style={{ paddingTop: 0 }}>
+      <section className="section ibg" style={{ paddingTop: 0 }}>
         <div className="section-bg" aria-hidden>
           {[
             { icon:'fa-envelope',      top:'5%',  left:'0.5%', rot:-18, sz:3.2, f:'f1', color:'var(--blue)'   },

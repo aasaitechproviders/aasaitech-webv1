@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import useReveal from '../hooks/useReveal.js'
 import SEO from '../components/SEO.jsx'
 import { COMPANY, STATS, SERVICES } from '../data/content.js'
+import BgIcons from '../components/BgIcons.jsx'
 import './SimplePage.css'
 
 export default function About() {
@@ -9,24 +10,10 @@ export default function About() {
   return (
     <div className="sp">
       <SEO title="About" path="/about" description="Aasai Tech is an AI-first software studio in Tamil Nadu — a DPIIT-recognized startup and NVIDIA Inception member building production-grade AI for the world." />
-      <section className="sp-hero has-bg-icons">
+      <section className="sp-hero ibg">
         <div className="sp-hero-bg" aria-hidden />
         <div className="sp-hero-accent" aria-hidden />
-        {/* About page bg icons: team/company/India theme */}
-        <div className="section-bg" aria-hidden>
-          {[
-            { icon:'fa-users',        top:'10%', left:'1%',   rot:-18, size:3.2, delay:'f1', color:'var(--blue)'   },
-            { icon:'fa-map-marker-alt',top:'50%', left:'3%',  rot:25,  size:2.2, delay:'f3', color:'var(--blue)'   },
-            { icon:'fa-award',        top:'78%', left:'12%',  rot:-35, size:2.8, delay:'f5', color:'var(--violet)' },
-            { icon:'fa-microchip',    top:'12%', right:'2%',  rot:22,  size:3.2, delay:'f2', color:'var(--blue)'   },
-            { icon:'fa-rocket',       top:'45%', right:'1%',  rot:-42, size:2.4, delay:'f4', color:'var(--violet)' },
-            { icon:'fa-globe',        top:'80%', right:'10%', rot:55,  size:2.0, delay:'f6', color:'var(--blue)'   },
-          ].map((b, i) => (
-            <span key={i} className={b.delay} style={{ position:'absolute', top:b.top, left:b.left, right:b.right, transform:`rotate(${b.rot}deg)`, display:'inline-flex', color:b.color, opacity:0.1, fontSize:`${b.size}rem` }}>
-              <i className={`fas ${b.icon}`} />
-            </span>
-          ))}
-        </div>
+        <BgIcons icons={['fa-users','fa-map-marker-alt','fa-award','fa-microchip','fa-rocket','fa-globe','fa-code','fa-brain','fa-server','fa-laptop-code','fa-cloud','fa-cogs']} color="var(--blue)" />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <span className="eyebrow">About Aasai Tech</span>
           <h1 className="display-title">An AI-first software studio<br /><span className="text-blue">building from Tamil Nadu.</span></h1>
@@ -43,24 +30,8 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section has-bg-icons" style={{ paddingTop: 0 }}>
-        {/* About body icons: studio/tech/India theme */}
-        <div className="section-bg" aria-hidden>
-          {[
-            { icon:'fa-code',       top:'5%',  left:'0.5%', rot:-18, sz:3.2, f:'f1', color:'var(--blue)'   },
-            { icon:'fa-brain',      top:'25%', left:'2%',   rot: 28, sz:2.2, f:'f3', color:'var(--blue)'   },
-            { icon:'fa-server',     top:'50%', left:'0.5%', rot:-38, sz:1.6, f:'f5', color:'var(--violet)' },
-            { icon:'fa-laptop-code',top:'74%', left:'2%',   rot: 15, sz:2.2, f:'f7', color:'var(--blue)'   },
-            { icon:'fa-cloud',      top:'5%',  right:'0.5%',rot: 22, sz:2.2, f:'f4', color:'var(--blue)'   },
-            { icon:'fa-microchip',  top:'30%', right:'1%',  rot:-42, sz:3.2, f:'f6', color:'var(--violet)' },
-            { icon:'fa-cogs',       top:'55%', right:'0.5%',rot: 60, sz:1.6, f:'f8', color:'var(--blue)'   },
-            { icon:'fa-rocket',     top:'78%', right:'4%',  rot:-20, sz:2.2, f:'f2', color:'var(--violet)' },
-          ].map((b, i) => (
-            <span key={i} className={b.f} style={{ position:'absolute', top:b.top, left:b.left, right:b.right, transform:`rotate(${b.rot}deg)`, display:'inline-flex', color:b.color, opacity:0.1, fontSize:`${b.sz}rem` }}>
-              <i className={`fas ${b.icon}`} style={{ display:'block' }} />
-            </span>
-          ))}
-        </div>
+      <section className="section ibg" style={{ paddingTop: 0 }}>
+        <BgIcons icons={['fa-code','fa-brain','fa-server','fa-laptop-code','fa-cloud','fa-microchip','fa-cogs','fa-rocket','fa-users','fa-award','fa-globe','fa-shield']} color="var(--blue)" />
         <div className="container" style={{ position:'relative', zIndex:1 }}>
           <div className="about-img-wrap reveal">
             <img src="/images/aboutus.png" alt="Aasai Tech team and workspace" />
