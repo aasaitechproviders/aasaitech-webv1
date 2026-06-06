@@ -32,7 +32,12 @@ export default function ProductPage() {
       {/* Hero */}
       <section className="pp-hero">
         <div className="pp-hero-bg" aria-hidden />
-        <div className="container">
+        <div className="pp-hero-bg-icons" aria-hidden>
+          <i className={`fas ${p.icon}`} />
+          <i className="fas fa-brain" />
+          <i className="fas fa-microchip" />
+        </div>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.nav initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pp-crumb">
             <Link to="/">Home</Link> <i className="fas fa-chevron-right" /> <Link to="/products">Products</Link>{' '}
             <i className="fas fa-chevron-right" /> <span>{p.name}</span>
@@ -49,6 +54,11 @@ export default function ProductPage() {
                 <a href={p.url} target="_blank" rel="noreferrer" className="btn btn-lg pp-btn-primary">
                   {p.featured ? 'Start Free' : 'Launch Platform'} <i className="fas fa-arrow-right" style={{ fontSize: '0.8rem' }} />
                 </a>
+                {p.demoUrl && (
+                  <a href={p.demoUrl} target="_blank" rel="noreferrer" className="btn btn-demo btn-lg">
+                    <i className="fas fa-play-circle" style={{ fontSize: '0.85rem' }} /> {p.demoLabel || 'Try Live Demo'}
+                  </a>
+                )}
                 <Link to="/contact" className="btn btn-outline btn-lg">Talk to us</Link>
               </motion.div>
               <motion.p variants={fadeUp} custom={4} className="pp-note">{p.hero.note}</motion.p>
@@ -339,6 +349,11 @@ export default function ProductPage() {
               <a href={p.url} target="_blank" rel="noreferrer" className="btn pp-btn-primary btn-lg">
                 {p.featured ? 'Get Started Free' : 'Launch Platform'} <i className="fas fa-arrow-right" style={{ fontSize: '0.8rem' }} />
               </a>
+              {p.demoUrl && (
+                <a href={p.demoUrl} target="_blank" rel="noreferrer" className="btn btn-demo btn-lg">
+                  <i className="fas fa-play-circle" /> {p.demoLabel || 'Try Live Demo'}
+                </a>
+              )}
               <Link to="/contact" className="btn btn-outline btn-lg pp-cta-ghost">Contact sales</Link>
             </div>
           </div>

@@ -12,26 +12,16 @@ export default function ProductCard({ product, large = false }) {
         style={{ '--pc': p.color, '--pc-soft': p.soft }}
       >
         <div className="pcf-visual">
-          <span className="pcf-ic"><i className={`fas ${p.icon}`} /></span>
+          {p.heroImg ? (
+            <img src={p.heroImg} alt={p.name} className="pcf-hero-img" />
+          ) : (
+            <span className="pcf-ic"><i className={`fas ${p.icon}`} /></span>
+          )}
           <div className="pcf-badges">
-            {p.featured && <span className="pcf-new">New product</span>}
+            {p.featured && <span className="pcf-new">✨ New product</span>}
             {p.live && <span className="pcf-live">Live</span>}
           </div>
-
-          {/* Metrics when available */}
-          {p.metrics && (
-            <div className="pcf-metrics">
-              {p.metrics.slice(0, 3).map((m, i) => (
-                <div key={i}>
-                  <b>{m.num}</b>
-                  <span>{m.label}</span>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Highlights fallback when no metrics */}
-          {!p.metrics && p.highlights && (
+          {p.highlights && (
             <ul className="pcf-highlights">
               {p.highlights.map((h, i) => (
                 <li key={i}>
@@ -47,34 +37,58 @@ export default function ProductCard({ product, large = false }) {
           <div className="pcf-cat">{p.category}</div>
           <h3 className="pcf-name">{p.name}</h3>
           <p className="pcf-desc">{p.short}</p>
-          <span className="pcf-link">
-            Explore {p.name} <i className="fas fa-arrow-right" />
-          </span>
+          <div className="pcf-actions">
+            <span className="pcf-link">
+              Explore {p.name} <i className="fas fa-arrow-right" />
+            </span>
+            {p.demoUrl && (
+              <span className="pcf-demo" onClick={(e) => { e.preventDefault(); window.open(p.demoUrl, '_blank'); }}>
+                <i className="fas fa-play-circle" /> {p.demoLabel || 'Try Demo'}
+              </span>
+            )}
+          </div>
         </div>
       </Link>
     )
   }
 
   return (
-    <Link
-      to={`/products/${p.slug}`}
-      className="pcard reveal"
-      style={{ '--pc': p.color, '--pc-soft': p.soft }}
-    >
-      <div className="pcard-top">
-        <span className="pcard-ic" style={{ background: p.soft, color: p.color }}>
-          <i className={`fas ${p.icon}`} />
-        </span>
-        {p.live && <span className="pcard-live">Live</span>}
-      </div>
-      <div className="pcard-cat" style={{ color: p.color }}>{p.category}</div>
-      <h3 className="pcard-name">{p.name}</h3>
-      <p className="pcard-desc">{p.short}</p>
-      <div className="pcard-foot">
-        <span className="pcard-link">
-          Explore {p.name} <i className="fas fa-arrow-right" />
-        </span>
-      </div>
-    </Link>
+    <div className="pcard-wrap reveal" style={{ '--pc': p.color, '--pc-soft': p.soft }}>
+      {p.heroImg && (
+        <div className="pcard-img-wrap">
+          <img src={p.heroImg} alt={p.name} className="pcard-img" />
+          {p.live && <span className="pcard-live-badge">● Live</span>}
+        </div>
+      )}
+      <Link to={`/products/${p.slug}`} className="pcard">
+        {!p.heroImg && (
+          <div className="pcard-top">
+            <span className="pcard-ic" style={{ background: p.soft, color: p.color }}>
+              <i className={`fas ${p.icon}`} />
+            </span>
+            {p.live && <span className="pcard-live">Live</span>}
+          </div>
+        )}
+        <div className="pcard-cat" style={{ color: p.color }}>{p.category}</div>
+        <h3 className="pcard-name">{p.name}</h3>
+        <p className="pcard-desc">{p.short}</p>
+        <div className="pcard-foot">
+          <span className="pcard-link">
+            Explore <i className="fas fa-arrow-right" />
+          </span>
+          {p.demoUrl && (
+            <a
+              href={p.demoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="pcard-demo-btn"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <i className="fas fa-external-link-alt" /> Demo
+            </a>
+          )}
+        </div>
+      </Link>
+    </div>
   )
 }

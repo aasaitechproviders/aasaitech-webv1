@@ -21,9 +21,19 @@ export default function Home() {
   return (
     <>
       <SEO path="/" />
+
       {/* ── HERO ── */}
       <section className="hero">
-        <div className="hero-bg" aria-hidden />
+        <div className="hero-bg-img" aria-hidden />
+        <div className="hero-bg-icons" aria-hidden>
+          <i className="fas fa-brain" />
+          <i className="fas fa-microchip" />
+          <i className="fas fa-robot" />
+          <i className="fas fa-network-wired" />
+          <i className="fas fa-database" />
+          <i className="fas fa-code" />
+          <i className="fas fa-cloud" />
+        </div>
         <div className="container hero-inner">
           <motion.div initial="hidden" animate="show" className="hero-left">
             <motion.div variants={fadeUp} custom={0} className="hero-tag">
@@ -164,11 +174,14 @@ export default function Home() {
               giving your users instant, intelligent answers at scale.
             </p>
           </div>
+          <div className="ps-before-after reveal">
+            <img src="/images/before-after-ai.png" alt="Before and after AI transformation" />
+          </div>
           <div className="ps-grid reveal">
             <div className="ps-col ps-problem">
               <div className="ps-label problem"><i className="fas fa-times-circle" /> Without AI</div>
               {[
-                'Customers can’t visualize products before buying — leading to hesitation and returns',
+                "Customers can't visualize products before buying — leading to hesitation and returns",
                 'Students search hundreds of PDF pages to find one answer',
                 'Teachers spend hours answering the same repetitive questions',
                 'Support queues pile up overnight with no response',
@@ -254,6 +267,11 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <div className="rag-diagram-img reveal">
+            <img src="/images/rag-diagram.png" alt="RAG AI pipeline architecture diagram" />
+          </div>
+
           <div className="rag-tech reveal">
             {['Azure OpenAI Embeddings', 'MongoDB Atlas Vector Search', 'Google Gemini / GPT', 'AWS Lambda Serverless', 'Streaming SSE Output'].map((t) => (
               <span className="rag-pill" key={t}><i className="fas fa-circle" /> {t}</span>

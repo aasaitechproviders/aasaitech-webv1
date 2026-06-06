@@ -1,8 +1,5 @@
 // ============================================================
-// Central content store — sourced from the existing aasaitech.in
-// site, the BoutiqueAI site, and the four official product
-// overview documents (BoutiqueAI, Aasai SmartEDU, Aasai Tech AI,
-// SupportGent).
+// Central content store — Aasai Tech Providers Private Limited
 // ============================================================
 
 export const COMPANY = {
@@ -44,8 +41,6 @@ export const PARTNERS = [
   { name: 'Razorpay', sub: 'Payments', icon: 'fa-credit-card', color: '#0c2451' },
 ]
 
-// ── PRODUCTS ──────────────────────────────────────────────
-// Each product has its own dedicated page at #/products/:slug
 export const PRODUCTS = [
   // ========================= BOUTIQUEAI =========================
   {
@@ -59,14 +54,15 @@ export const PRODUCTS = [
     live: true,
     heroImg: '/images/boutique-ai-hero.png',
     url: 'https://boutiquesaas.aasaitech.in',
+    demoUrl: 'https://arun-silkhouse.boutiquesaas.aasaitech.in',
+    demoLabel: 'Try Live Demo',
     highlights: [
       { icon: 'fas fa-camera', label: 'Upload a selfie, try on instantly' },
       { icon: 'fas fa-mobile-alt', label: 'No app download needed' },
       { icon: 'fab fa-whatsapp', label: 'Share via WhatsApp & Instagram' },
       { icon: 'fas fa-palette', label: 'Your brand, your colors' },
     ],
-    short:
-      "Give your boutique its own AI dressing room. Customers upload a selfie, pick an outfit, and instantly see how it looks on them — no app, no code, no setup.",
+    short: "Give your boutique its own AI dressing room. Customers upload a selfie, pick an outfit, and instantly see how it looks on them — no app, no code, no setup.",
     hero: {
       badge: '✨ Virtual Try-On — Built for Indian Boutiques',
       title: "Your boutique's own AI dressing room",
@@ -74,39 +70,36 @@ export const PRODUCTS = [
       note: 'Start free · No coding · Share on WhatsApp & Instagram',
     },
     problems: [
-      { icon: '📦', title: 'High return rates', desc: 'Customers order, discover the outfit doesn’t suit them, and return it — costing time, logistics, and restocking effort.' },
-      { icon: '🐢', title: 'Slow buying decisions', desc: '"Will this saree match my skin tone? Does this blouse fit?" Every doubt over WhatsApp delays or kills the sale.' },
-      { icon: '🪞', title: 'No visual confidence', desc: 'Product photos show garments on a mannequin or generic model — not on the actual customer. Trust and excitement are lost.' },
-      { icon: '🧑‍💻', title: 'No app, no tech budget', desc: 'Boutique owners aren’t developers. They can’t build or afford a custom try-on app — they need something that works from day one.' },
-      { icon: '🌙', title: 'After-hours sales lost', desc: 'When a customer browses at 10pm with questions, there’s no one to answer. Potential sales slip away overnight.' },
+      { icon: '📦', title: 'High return rates', desc: 'Customers order, discover the outfit doesn\'t suit them, and return it — costing time, logistics, and restocking effort.' },
+      { icon: '🐢', title: 'Slow buying decisions', desc: '"Will this saree match my skin tone?" Every doubt over WhatsApp delays or kills the sale.' },
+      { icon: '🪞', title: 'No visual confidence', desc: 'Product photos show garments on a mannequin — not on the actual customer. Trust and excitement are lost.' },
+      { icon: '🧑‍💻', title: 'No app, no tech budget', desc: 'Boutique owners aren\'t developers. They need something that works from day one without coding.' },
+      { icon: '🌙', title: 'After-hours sales lost', desc: 'When a customer browses at 10pm, there\'s no one to answer. Potential sales slip away overnight.' },
       { icon: '🔗', title: 'Low upselling', desc: 'Showing how a saree, blouse, and jewellery work together is hard over chat. Boutiques lose combo and accessory sales.' },
     ],
     steps: [
-      { icon: '🛍️', title: 'Create your agent', desc: 'Sign in with Google. Enter your boutique name, choose your category (Sarees, Western Wear, Jewellery…), pick a brand colour, and write a welcome message. Your branded AI stylist is created instantly.', time: 'Sign in with Google' },
-      { icon: '📸', title: 'Upload your catalog', desc: 'Upload product photos — sarees, dresses, jewellery, footwear, or any apparel. The AI learns your inventory automatically. Add or remove products anytime; changes go live immediately.', time: 'Drag & drop' },
-      { icon: '🔗', title: 'Share your link & go live', desc: 'Copy your unique try-on URL and share it on WhatsApp, Instagram bio, or your website. Customers tap, upload a selfie, pick an outfit, and see their try-on right in the browser.', time: "Done. You're live." },
+      { icon: '🛍️', title: 'Create your agent', desc: 'Sign in with Google. Enter your boutique name, choose your category, pick a brand colour, and write a welcome message. Your branded AI stylist is created instantly.', time: 'Sign in with Google' },
+      { icon: '📸', title: 'Upload your catalog', desc: 'Upload product photos — sarees, dresses, jewellery, footwear, or any apparel. The AI learns your inventory automatically.', time: 'Drag & drop' },
+      { icon: '🔗', title: 'Share your link & go live', desc: 'Copy your unique try-on URL and share it on WhatsApp or Instagram bio. Customers tap, upload a selfie, and see their try-on right in the browser.', time: "Done. You\'re live." },
     ],
     audience: [
       { emoji: '🥻', title: 'Saree & Silk Stores', desc: 'Let customers see how Kanjivarams, Banarasis, and designer blouses look on them before they visit or place a WhatsApp order.' },
-      { emoji: '👗', title: 'Western & Fusion Wear', desc: 'Dresses, co-ords, tops — ideal for Instagram boutiques that sell nationwide to customers who can’t visit in person.' },
-      { emoji: '💍', title: 'Jewellery & Accessories', desc: 'Show how necklaces, earrings, and bangles complement a full outfit. AI renders fine jewellery detail so customers buy with confidence.' },
+      { emoji: '👗', title: 'Western & Fusion Wear', desc: 'Dresses, co-ords, tops — ideal for Instagram boutiques that sell nationwide to customers who can\'t visit in person.' },
+      { emoji: '💍', title: 'Jewellery & Accessories', desc: 'Show how necklaces, earrings, and bangles complement a full outfit. AI renders fine jewellery detail.' },
       { emoji: '👶', title: 'Kids Clothing Stores', desc: 'Parents love seeing how ethnic wear and dresses look before ordering. Reduce return rates and increase repeat purchases.' },
-      { emoji: '👠', title: 'Footwear Shops', desc: 'Customers pick an outfit from the catalog and immediately see matching footwear on themselves — seamless cross-selling.' },
+      { emoji: '👠', title: 'Footwear Shops', desc: 'Customers pick an outfit and immediately see matching footwear — seamless cross-selling.' },
       { emoji: '🏪', title: 'Multi-Brand Boutiques', desc: 'Mix sarees, western wear, and jewellery in one catalog. Customers try combo outfits — three products, one image, one sale.' },
     ],
     features: [
-      { icon: '🤖', title: 'Your own branded AI agent', desc: 'Custom name, logo, colors, and welcome message. Customers interact with your boutique’s own stylist, not a generic bot.' },
-      { icon: '🪭', title: 'Photorealistic try-ons', desc: "Powered by Google Gemini's latest image AI. Fabric drapes naturally, colors are accurate, and the customer's face stays unchanged." },
+      { icon: '🤖', title: 'Your own branded AI agent', desc: 'Custom name, logo, colors, and welcome message. Customers interact with your boutique\'s own stylist, not a generic bot.' },
+      { icon: '🪭', title: 'Photorealistic try-ons', desc: "Powered by Google Gemini\'s latest image AI. Fabric drapes naturally, colors are accurate, and the customer\'s face stays unchanged." },
       { icon: '👗', title: 'Combo try-ons', desc: 'Customers try on up to 3 products together — saree, blouse, and jewellery — in one generated image. Ideal for upselling.' },
       { icon: '💬', title: 'AI chat stylist built in', desc: 'Between try-ons, the AI answers questions about size, availability, color matching, and recommendations — 24/7.' },
-      { icon: '📊', title: 'Real-time analytics dashboard', desc: 'See which products get tried most, sessions per day, which items convert best, and customer engagement — all from one dashboard.' },
-      { icon: '🌐', title: 'Instant branded URL', desc: 'Every agent gets a unique subdomain (your-store.boutiquesaas.aasaitech.in). Custom domains available on paid plans.' },
-      { icon: '🔒', title: 'Per-customer rate limits', desc: 'Set how many try-ons each customer gets per day, week, month, or total. Prevents credit abuse and protects your catalog.' },
-      { icon: '🏷️', title: 'Watermarked downloads', desc: 'When customers download their try-on photo, your logo and name are added automatically. Every share is free marketing.' },
-      { icon: '⚡', title: 'Credit-based, pay as you grow', desc: 'Flexible credit-based pricing with quality tiers, so you only pay for what you use. Start free and top up whenever you need more.' },
-      { icon: '📤', title: 'Customer data export', desc: 'Export full customer data to CSV — mobile numbers, try-on counts, agent, last active date. Useful for WhatsApp remarketing.' },
-      { icon: '🧧', title: 'GST-compliant invoicing', desc: 'Enter your GSTIN and business name once. All payment invoices are generated GST-compliant automatically.' },
-      { icon: '🔌', title: 'API access (coming soon)', desc: 'REST API for integrating BoutiqueAI into your own website, app, or ordering system. Already on the roadmap.' },
+      { icon: '📊', title: 'Real-time analytics', desc: 'See which products get tried most, sessions per day, which items convert best, and customer engagement — all from one dashboard.' },
+      { icon: '🔒', title: 'Per-customer rate limits', desc: 'Set how many try-ons each customer gets per day, week, or month. Prevents credit abuse and protects your catalog.' },
+      { icon: '🏷️', title: 'Watermarked downloads', desc: 'When customers download their try-on photo, your logo is added automatically. Every share is free marketing.' },
+      { icon: '⚡', title: 'Credit-based pricing', desc: 'Flexible credit-based pricing with quality tiers, so you only pay for what you use. Start free and top up anytime.' },
+      { icon: '📤', title: 'Customer data export', desc: 'Export full customer data to CSV — mobile numbers, try-on counts, last active date. Useful for WhatsApp remarketing.' },
     ],
     pricing: [
       { name: 'Free', price: 'Free', period: '', note: 'No credit card needed', credits: 'Free credits on signup', popular: false,
@@ -118,12 +111,12 @@ export const PRODUCTS = [
       { name: 'Studio Premium', price: 'Custom', period: '', note: 'For high-volume brands', credits: 'Custom volume', popular: false,
         feats: ['Custom credit volume', 'Unlimited AI agents', 'Dedicated infrastructure', 'Full custom domain setup', 'Bulk catalog generation', 'Dedicated account manager'] },
     ],
-    pricingNote: 'Flexible credit-based pricing with quality tiers, billed via Razorpay (UPI, cards, net banking, wallets). Visit the platform for current plans and pricing, or contact us for a tailored quote.',
+    pricingNote: 'Flexible credit-based pricing with quality tiers, billed via Razorpay (UPI, cards, net banking, wallets). Visit the platform for current plans and pricing.',
     useCases: [
-      { title: 'WhatsApp Boutique — closing sales faster', desc: 'A saree store gets a steady stream of WhatsApp enquiries, but many shoppers hesitate because they’re unsure how a piece will look on them. With a try-on link on every catalog message, customers upload a photo, try the saree, and reply ready to order — shortening the back-and-forth.' },
-      { title: 'Instagram Boutique — nationwide sales', desc: 'A western-wear boutique ships across India via Instagram DMs. The bio link lets anyone try on any piece from anywhere, so shoppers buy with more confidence after seeing the outfit on themselves, and the AI handles common "do you have size M?" questions around the clock.' },
-      { title: 'Jewellery Store — cross-selling with confidence', desc: 'A jewellery brand uses combo try-ons so customers pick a saree and a necklace together and see the complete look in one image — making it natural to bundle matching sets and lift the average order.' },
-      { title: 'Kids Wear — reducing returns', desc: 'A kids clothing store sees returns from catalog-based ordering. Parents upload a photo of their child, pick a frock or ethnic outfit, and see a try-on before ordering — helping reduce returns and build repeat trust.' },
+      { title: 'WhatsApp Boutique — closing sales faster', desc: 'A saree store gets a steady stream of WhatsApp enquiries. With a try-on link on every catalog message, customers upload a photo, try the saree, and reply ready to order.' },
+      { title: 'Instagram Boutique — nationwide sales', desc: 'A western-wear boutique ships across India via Instagram DMs. The bio link lets anyone try on any piece from anywhere, so shoppers buy with confidence.' },
+      { title: 'Jewellery Store — cross-selling with confidence', desc: 'A jewellery brand uses combo try-ons so customers pick a saree and a necklace together and see the complete look in one image — making it natural to bundle matching sets.' },
+      { title: 'Kids Wear — reducing returns', desc: 'Parents upload a photo of their child, pick an outfit, and see a try-on before ordering — helping reduce returns and build repeat trust.' },
     ],
     security: [
       { icon: '🔒', title: 'Encrypted image storage', desc: 'All customer photos are stored in encrypted AWS S3 buckets. Images are never shared or used for AI model training.' },
@@ -134,8 +127,7 @@ export const PRODUCTS = [
     faq: [
       { q: 'Do my customers need to download an app?', a: 'No. They just tap your link — it opens in any browser on their phone or laptop. No download, no login required for them.' },
       { q: 'How fast are the try-on images?', a: 'Try-ons are generated in seconds, right in the browser. Higher quality tiers take a little longer but show finer fabric detail.' },
-      { q: 'What happens when I run out of credits?', a: 'Customers see a friendly message that try-ons are temporarily unavailable. You can top up anytime from your dashboard — credits add instantly and top-up packs never expire.' },
-      { q: 'Can I manage multiple boutiques?', a: 'Yes. Every plan — including Free — supports unlimited AI agents, each a separate boutique with its own catalog, URL, and chat history.' },
+      { q: 'What happens when I run out of credits?', a: 'Customers see a friendly message that try-ons are temporarily unavailable. You can top up anytime from your dashboard — credits add instantly and never expire.' },
       { q: 'Can I use my own domain name?', a: 'Yes, on paid plans you can connect a custom domain like tryon.yourstore.com with a simple one-step DNS setup.' },
       { q: 'Are customer photos stored safely?', a: 'Yes. All images are stored in encrypted AWS S3 buckets. Customers can delete their base photo anytime, and we never use images for training.' },
     ],
@@ -153,12 +145,13 @@ export const PRODUCTS = [
     live: true,
     heroImg: '/images/smartedu-hero.png',
     url: 'https://aasaischool.ai.aasaitech.in',
-    short:
-      'AI-powered, multi-tenant school management & learning platform. Every school gets its own branded portal with role-based dashboards and a RAG assistant trained on its own study materials.',
+    demoUrl: 'https://aasaischool.ai.aasaitech.in/student',
+    demoLabel: 'View Student Demo',
+    short: 'AI-powered, multi-tenant school management & learning platform. Every school gets its own branded portal with role-based dashboards and a RAG assistant trained on its own study materials.',
     hero: {
       badge: '🎓 Multi-Tenant School Platform',
       title: 'Every school its own branded AI learning portal',
-      sub: 'A cloud-based, multi-tenant platform that gives each school a white-labelled portal on its own subdomain — with role-based dashboards for admins, teachers, and students, and a RAG assistant that answers from the school’s own uploaded materials.',
+      sub: 'A cloud-based, multi-tenant platform that gives each school a white-labelled portal on its own subdomain — with role-based dashboards for admins, teachers, and students, and a RAG assistant that answers only from the school\'s own uploaded materials.',
       note: 'Google Sign-In · Per-school branding · RAG curriculum AI · Built on AWS',
     },
     metrics: [
@@ -168,16 +161,16 @@ export const PRODUCTS = [
       { num: 'AWS', label: 'Serverless, multi-tenant' },
     ],
     problems: [
-      { icon: '🏫', title: 'Schools can’t afford custom software', desc: 'Most schools share a generic platform or spend lakhs building their own. SmartEDU gives every school a fully white-labelled portal on its own subdomain at a fraction of the cost.' },
-      { icon: '🌙', title: 'No one to ask at 10 PM', desc: 'Doubt-clearing is limited to school hours. With SmartEDU’s AI assistant, a student can ask any question in their language and get an instant, structured answer any time.' },
-      { icon: '📂', title: 'Teachers waste hours distributing notes', desc: 'Teachers juggle WhatsApp groups, email, and USB drives. SmartEDU gives a drag-and-drop upload panel that instantly makes materials available and feeds the AI.' },
-      { icon: '👁️', title: 'Admins are blind to portal activity', desc: 'Without a console, admins can’t see usage or enrolment. The Admin Dashboard gives real-time visibility into accounts, uploads, and statistics.' },
-      { icon: '🤖', title: 'Generic AI doesn’t know your curriculum', desc: 'Public tools answer from the open internet. SmartEDU’s RAG engine retrieves answers exclusively from the documents your own teachers uploaded — always curriculum-aligned.' },
+      { icon: '🏫', title: 'Schools can\'t afford custom software', desc: 'Most schools share a generic platform or spend lakhs building their own. SmartEDU gives every school a fully white-labelled portal at a fraction of the cost.' },
+      { icon: '🌙', title: 'No one to ask at 10 PM', desc: 'Doubt-clearing is limited to school hours. With SmartEDU\'s AI assistant, a student can ask any question in their language and get an instant, structured answer any time.' },
+      { icon: '📂', title: 'Teachers waste hours distributing notes', desc: 'Teachers juggle WhatsApp groups, email, and USB drives. SmartEDU gives a drag-and-drop upload panel that instantly makes materials available.' },
+      { icon: '👁️', title: 'Admins are blind to portal activity', desc: 'Without a console, admins can\'t see usage or enrolment. The Admin Dashboard gives real-time visibility into accounts, uploads, and statistics.' },
+      { icon: '🤖', title: 'Generic AI doesn\'t know your curriculum', desc: 'Public tools answer from the open internet. SmartEDU\'s RAG engine retrieves answers exclusively from documents your own teachers uploaded — always curriculum-aligned.' },
     ],
     steps: [
-      { icon: '🏫', title: 'School onboarding', desc: 'Aasai registers the school, creates a subdomain (e.g. aasaischool.ai.aasaitech.in), and uploads the school’s logo, name, and brand colours. No installation required.', time: 'Zero setup for schools' },
+      { icon: '🏫', title: 'School onboarding', desc: 'Aasai registers the school, creates a subdomain, and uploads the school\'s logo, name, and brand colours. No installation required.', time: 'Zero setup for schools' },
       { icon: '👥', title: 'Admin sets up users', desc: 'The admin logs in via Google Sign-In and adds teacher emails through the Admin Dashboard. Teachers get instant access; students self-register or are added in bulk.', time: 'Minutes' },
-      { icon: '📤', title: 'Teachers upload materials', desc: 'Teachers select the class standard and subject, then upload PDFs, notes, or worksheets. Each document is processed by AWS Lambda and indexed into the RAG knowledge base.', time: 'Drag & drop' },
+      { icon: '📤', title: 'Teachers upload materials', desc: 'Teachers select the class standard and subject, then upload PDFs, notes, or worksheets. Each document is processed and indexed into the RAG knowledge base.', time: 'Drag & drop' },
       { icon: '💬', title: 'Students ask questions', desc: 'Students pick standard, subject, and preferred language, then type a question. The AI retrieves relevant passages and returns a structured answer — with tables, derivations, or step-by-step solutions.', time: 'Instant' },
     ],
     audience: [
@@ -188,17 +181,15 @@ export const PRODUCTS = [
       { emoji: '🤝', title: 'EdTech Resellers', desc: 'Partners who want to white-label and resell a proven AI school platform to institutions.' },
     ],
     features: [
-      { icon: '🎨', title: 'Multi-tenant school branding', desc: 'The system detects the school from its subdomain and loads its name, logo, and custom colours across the entire portal. Everyone feels they’re on their own school’s platform.' },
-      { icon: '🔑', title: 'Google Sign-In authentication', desc: 'Login is handled entirely through Google OAuth 2.0 — no usernames or passwords. Users are mapped to a school and role and routed to the right dashboard automatically.' },
-      { icon: '🧭', title: 'Role-based dashboards', desc: 'Three distinct dashboards — Admin, Teacher, and Student — each with its own interface, permissions, and tools. No clutter from features meant for other roles.' },
+      { icon: '🎨', title: 'Multi-tenant school branding', desc: 'The system detects the school from its subdomain and loads its name, logo, and custom colours across the entire portal.' },
+      { icon: '🔑', title: 'Google Sign-In authentication', desc: 'Login is handled entirely through Google OAuth 2.0 — no usernames or passwords. Users are mapped to a school and role automatically.' },
+      { icon: '🧭', title: 'Role-based dashboards', desc: 'Three distinct dashboards — Admin, Teacher, and Student — each with its own interface, permissions, and tools.' },
       { icon: '📤', title: 'Teacher document upload portal', desc: 'Drag-and-drop upload, standard/subject categorisation, group-level targeting, real-time progress, a personal library with status, and total page-count tracking.' },
-      { icon: '🧠', title: 'AI student Q&A (RAG engine)', desc: 'Students select standard, subject, medium and answer language, ask a question, and get a structured answer sourced only from the school’s own materials — never hallucinated.' },
-      { icon: '📊', title: 'Admin dashboard', desc: 'Live stats (documents, processing status, pages indexed), teacher and student management, a document activity log with timestamps, and search across users.' },
-      { icon: '🔐', title: 'Session management & security', desc: 'JWT tokens silently restore valid sessions; role verification is enforced on every dashboard, redirecting unauthorised users to login.' },
-      { icon: '📱', title: 'Responsive, mobile-friendly', desc: 'All dashboards work on phones, tablets, and desktops — ideal for Indian students who often use smartphones.' },
+      { icon: '🧠', title: 'AI student Q&A (RAG engine)', desc: 'Students select standard, subject, medium and answer language, ask a question, and get a structured answer sourced only from the school\'s own materials — never hallucinated.' },
+      { icon: '📊', title: 'Admin dashboard', desc: 'Live stats, teacher and student management, a document activity log with timestamps, and search across users.' },
     ],
     why: [
-      'School-specific AI — answers come from your school’s own materials, not the open internet',
+      'School-specific AI — answers come from your school\'s own materials, not the open internet',
       'Zero setup for schools — no servers, no installation, no IT department required',
       'Full white-labelling — every school sees its own brand, not ours',
       'Multi-language support — students can learn in their mother tongue',
@@ -208,7 +199,7 @@ export const PRODUCTS = [
     tech: ['Google OAuth 2.0', 'AWS API Gateway + Lambda', 'Amazon S3', 'RAG Vector Knowledge Base', 'JWT Session Security', 'Vanilla JS — fast on any device'],
   },
 
-  // ========================= AASAI TECH AI (Free AI Chat) =========================
+  // ========================= AASAI TECH AI =========================
   {
     slug: 'aasai-tech-ai',
     name: 'Aasai Tech AI',
@@ -219,8 +210,9 @@ export const PRODUCTS = [
     live: true,
     heroImg: '/images/aasai-ai-hero.png',
     url: 'https://freeai.aasaitech.in',
-    short:
-      'A free, browser-based AI chat platform with vision, streaming replies, cloud-synced history, and guest mode — instant access to a powerful AI assistant with no downloads or subscriptions.',
+    demoUrl: 'https://freeai.aasaitech.in',
+    demoLabel: 'Start Chatting Free',
+    short: 'A free, browser-based AI chat platform with vision, streaming replies, cloud-synced history, and guest mode — instant access to a powerful AI assistant with no downloads or subscriptions.',
     hero: {
       badge: '💬 Free AI Chat Platform',
       title: 'A powerful AI assistant, free, right in your browser',
@@ -234,29 +226,27 @@ export const PRODUCTS = [
       { num: 'SSE', label: 'Streaming replies' },
     ],
     features: [
-      { icon: '🤖', title: 'Real-time AI responses', desc: 'Intelligent, context-aware answers to any question — writing, coding, research, math, or general knowledge. Understands multi-turn conversations within a session.' },
-      { icon: '⏱️', title: 'Streaming replies', desc: 'For signed-in users, responses stream word-by-word in real time — like watching the AI think — for a smooth, natural experience.' },
-      { icon: '🖼️', title: 'Image understanding (Vision AI)', desc: 'Attach up to 4 images per message (10 MB each), or paste from the clipboard. The AI reads, describes, extracts text from, and compares images.' },
+      { icon: '🤖', title: 'Real-time AI responses', desc: 'Intelligent, context-aware answers to any question — writing, coding, research, math, or general knowledge.' },
+      { icon: '⏱️', title: 'Streaming replies', desc: 'For signed-in users, responses stream word-by-word in real time — like watching the AI think.' },
+      { icon: '🖼️', title: 'Image understanding (Vision AI)', desc: 'Attach up to 4 images per message (10 MB each). The AI reads, describes, extracts text from, and compares images.' },
       { icon: '🔒', title: 'Secure Google Sign-In', desc: 'One-click sign-in via Google Identity Services. No passwords, no forms.' },
-      { icon: '📂', title: 'Cloud-synced history', desc: 'Signed-in users have every conversation saved to the cloud and accessible from any device. Delete individual chats or export everything as JSON.' },
+      { icon: '📂', title: 'Cloud-synced history', desc: 'Signed-in users have every conversation saved to the cloud and accessible from any device.' },
       { icon: '👤', title: 'Guest mode', desc: 'Anyone can start chatting instantly without an account. Guest chats are temporary and subject to a message limit.' },
-      { icon: '📊', title: 'Usage statistics dashboard', desc: 'A live panel showing total messages, tokens consumed, sessions, today’s activity, and a quota progress bar — plus a per-session token breakdown.' },
-      { icon: '🎨', title: 'Customisation & personalisation', desc: 'Pick a custom accent colour or one of 10 presets, upload a custom profile avatar, and tune behaviour like Enter-to-send and the typing indicator.' },
-      { icon: '📱', title: 'Mobile & desktop ready', desc: 'Fully responsive with an overlay sidebar on small screens and iOS safe-area handling, plus keyboard shortcuts (Cmd/Ctrl+K, Enter, Esc).' },
+      { icon: '📊', title: 'Usage statistics dashboard', desc: 'A live panel showing total messages, tokens consumed, sessions, today\'s activity, and a quota progress bar.' },
+      { icon: '📱', title: 'Mobile & desktop ready', desc: 'Fully responsive with an overlay sidebar on small screens and iOS safe-area handling.' },
     ],
     audience: [
-      { emoji: '📚', title: 'Students & Learners', desc: 'Instant doubt-clearing in Tamil or English, essay and assignment help, and worked math & science solutions that explain the method.' },
-      { emoji: '💼', title: 'Businesses & Professionals', desc: 'Draft client emails, proposals, and summaries in minutes; understand reports and invoices from screenshots; brainstorm ideas and strategy fast.' },
-      { emoji: '💻', title: 'Developers & Technical Users', desc: 'Write, fix, and explain code across dozens of languages; generate READMEs, API docs, and code comments from a brief description.' },
-      { emoji: '🌍', title: 'Everyday Use', desc: 'Compare products and decisions, get concise research summaries, and generate creative writing — stories, captions, scripts — on demand.' },
+      { emoji: '📚', title: 'Students & Learners', desc: 'Instant doubt-clearing in Tamil or English, essay and assignment help, and worked math & science solutions.' },
+      { emoji: '💼', title: 'Businesses & Professionals', desc: 'Draft client emails, proposals, and summaries in minutes; understand reports and invoices from screenshots.' },
+      { emoji: '💻', title: 'Developers & Technical Users', desc: 'Write, fix, and explain code across dozens of languages; generate READMEs, API docs, and code comments.' },
+      { emoji: '🌍', title: 'Everyday Use', desc: 'Compare products and decisions, get concise research summaries, and generate creative writing on demand.' },
     ],
     why: [
-      '100% free to start — guest users chat immediately; signed-up users get a generous free quota with full features',
+      '100% free to start — guest users chat immediately; signed-up users get a generous free quota',
       'No download needed — works in Chrome, Safari, Edge, or Firefox',
       'Made in India — built by a Tamil Nadu startup that understands Indian users, languages, and business contexts',
       'Privacy-conscious — Google-handled auth; chat data stored per-user with full delete and export control',
       'Enterprise-ready credentials — backed by DPIIT recognition and NVIDIA Inception membership',
-      'Continuous improvement — regularly updated with new features and performance gains',
     ],
     tech: ['Google OAuth 2.0', 'Streaming via Server-Sent Events', 'Vision (4 images / 10 MB each)', 'Cloud history + JSON export', 'AWS Lambda (ap-southeast-2)'],
   },
@@ -272,8 +262,9 @@ export const PRODUCTS = [
     live: true,
     heroImg: '/images/supportgent-hero.png',
     url: 'https://supportagent.aasaitech.in',
-    short:
-      'Build intelligent AI agents that answer questions, recommend products, take orders, and auto-reply across website, WhatsApp, Instagram, and email — working 24/7 with no human intervention.',
+    demoUrl: 'https://arun-store-tnn8.supportagent.aasaitech.in/chat?agent=69c42580acc7cbb74f97e7ef',
+    demoLabel: 'Try Live Demo',
+    short: 'Build intelligent AI agents that answer questions, recommend products, take orders, and auto-reply across website, WhatsApp, Instagram, and email — working 24/7 with no human intervention.',
     hero: {
       badge: '🎧 AI Support & Sales Platform',
       title: 'AI agents that support and sell, 24/7, on every channel',
@@ -287,28 +278,26 @@ export const PRODUCTS = [
       { num: 'No-code', label: 'Setup, no developer needed' },
     ],
     problems: [
-      { icon: '🌙', title: 'You can’t be available 24/7', desc: 'Customers ask questions at midnight, on weekends, and during festivals. SupportGent runs 24/7 and handles every query instantly, even while you sleep.' },
-      { icon: '🔁', title: 'Hours lost to repetitive questions', desc: '"What’s your return policy?" "Do you deliver to Chennai?" Train SupportGent once and it handles the bulk of your repetitive queries automatically.' },
-      { icon: '📥', title: 'Messages scattered across apps', desc: 'WhatsApp, Instagram, and email in separate inboxes is chaotic. SupportGent unifies all channels into one inbox with auto-replies across each.' },
-      { icon: '🧩', title: 'Website live chat is complex to build', desc: 'Hiring a developer is expensive. SupportGent’s no-code widget goes live by pasting a single line of HTML — no engineering needed.' },
-      { icon: '🛒', title: 'Customers drop off before buying', desc: 'Shoppers have questions at checkout. The AI sales agent answers in real-time, recommends alternatives, and can take payment via Razorpay in-chat.' },
-      { icon: '🌐', title: 'You serve many Indian languages', desc: 'The widget supports Tamil, Telugu, Kannada, Malayalam, Hindi, and English — making your business accessible across India in native languages.' },
+      { icon: '🌙', title: 'You can\'t be available 24/7', desc: 'Customers ask questions at midnight, on weekends, and during festivals. SupportGent runs 24/7 and handles every query instantly, even while you sleep.' },
+      { icon: '🔁', title: 'Hours lost to repetitive questions', desc: '"What\'s your return policy?" Train SupportGent once and it handles the bulk of your repetitive queries automatically.' },
+      { icon: '📥', title: 'Messages scattered across apps', desc: 'WhatsApp, Instagram, and email in separate inboxes is chaotic. SupportGent unifies all channels into one inbox with auto-replies.' },
+      { icon: '🧩', title: 'Website live chat is complex to build', desc: 'SupportGent\'s no-code widget goes live by pasting a single line of HTML — no engineering needed.' },
+      { icon: '🛒', title: 'Customers drop off before buying', desc: 'The AI sales agent answers in real-time, recommends alternatives, and can take payment via Razorpay in-chat.' },
+      { icon: '🌐', title: 'You serve many Indian languages', desc: 'The widget supports Tamil, Telugu, Kannada, Malayalam, Hindi, and English — making your business accessible across India.' },
     ],
     steps: [
-      { icon: '🪪', title: 'Create your agent', desc: 'Name your agent, upload your logo, choose a brand colour and theme, write a welcome message, pick a type (Support, Sales, FAQ, General), and set a system prompt to define its behaviour.', time: 'No code needed' },
+      { icon: '🪪', title: 'Create your agent', desc: 'Name your agent, upload your logo, choose a brand colour and theme, write a welcome message, pick a type (Support, Sales, FAQ), and set a system prompt.', time: 'No code needed' },
       { icon: '📚', title: 'Add your knowledge base', desc: 'Paste FAQ text, upload PDF/DOCX/TXT files, or enter a webpage URL to scrape. SupportGent extracts, indexes, and learns your business content.', time: 'Smart training' },
       { icon: '🛍️', title: '(Optional) Enable shopping', desc: 'Toggle shopping on, add products manually or via CSV, connect your Razorpay keys, and set your currency to accept payments inside the chat.', time: 'Sales-ready' },
       { icon: '🚀', title: 'Publish & connect channels', desc: 'Publish to an instant subdomain or embed one HTML line. Connect WhatsApp, Instagram (Meta), and Gmail, and enable AI auto-reply per channel.', time: 'Go live' },
     ],
     features: [
-      { icon: '🧱', title: 'No-code AI agent builder', desc: 'Set agent name and persona, upload a logo and welcome message, write a custom system prompt, choose dark/light theme and brand colour, with a real-time live preview.' },
-      { icon: '🧠', title: 'Knowledge base (smart training)', desc: 'Train on text/FAQ, PDF/DOCX/TXT uploads, and URL scraping. Add multiple knowledge sources per agent — scaling with your plan — with token tracking per source.' },
-      { icon: '🛒', title: 'Shopping & sales automation', desc: 'Product catalogue (manual or CSV), AI product recommendations, Razorpay in-chat payments, order management (Pending/Paid/Fulfilled/Refunded), and sales analytics.' },
-      { icon: '📡', title: 'Multi-channel support', desc: 'Website widget (one line of HTML), WhatsApp Business, Instagram DMs, and Gmail/email — with an AI auto-reply toggle per channel so you stay in control.' },
-      { icon: '📨', title: 'Unified conversations inbox', desc: 'View, search, and manage every conversation from all channels in one feed, with AI-reply labels and real-time updates — no page refresh.' },
+      { icon: '🧱', title: 'No-code AI agent builder', desc: 'Set agent name and persona, upload a logo and welcome message, write a custom system prompt, choose dark/light theme and brand colour.' },
+      { icon: '🧠', title: 'Knowledge base (smart training)', desc: 'Train on text/FAQ, PDF/DOCX/TXT uploads, and URL scraping. Add multiple knowledge sources per agent.' },
+      { icon: '🛒', title: 'Shopping & sales automation', desc: 'Product catalogue (manual or CSV), AI product recommendations, Razorpay in-chat payments, order management, and sales analytics.' },
+      { icon: '📡', title: 'Multi-channel support', desc: 'Website widget (one line of HTML), WhatsApp Business, Instagram DMs, and Gmail — with an AI auto-reply toggle per channel.' },
+      { icon: '📨', title: 'Unified conversations inbox', desc: 'View, search, and manage every conversation from all channels in one feed, with AI-reply labels and real-time updates.' },
       { icon: '🌍', title: 'Multi-language UI', desc: 'The chat widget serves customers in English, Tamil, Telugu, Kannada, Malayalam, and Hindi.' },
-      { icon: '🌐', title: 'Publishing & deployment', desc: 'Instant subdomain (yourstore.supportagent.aasaitech.in), custom domain support, an embed widget snippet, and Draft/Live status control.' },
-      { icon: '📊', title: 'Dashboard & analytics', desc: 'Conversation stats with 14-day trends, a token usage meter vs. your plan cap, an agent overview with share links, and full billing history.' },
     ],
     pricing: [
       { name: 'Starter', price: 'Starter', period: '', note: 'For small businesses', credits: 'Multiple agents', popular: false,
@@ -318,7 +307,7 @@ export const PRODUCTS = [
       { name: 'Enterprise', price: 'Enterprise', period: '', note: 'For high scale', credits: 'Unlimited scale', popular: false,
         feats: ['Unlimited agents', 'High monthly token allowance', 'Unlimited knowledge sources', 'All features included', 'Unlimited scale', 'Dedicated support'] },
     ],
-    pricingNote: 'Token-based plans with an annual-billing discount, plus one-time token top-ups that never expire. Visit the platform for current plans and pricing, or contact us for a tailored quote.',
+    pricingNote: 'Token-based plans with an annual-billing discount, plus one-time token top-ups that never expire. Visit the platform for current plans and pricing.',
     audience: [
       { emoji: '🛍️', title: 'E-commerce & D2C brands', desc: 'Automate product discovery and order support, and take payments directly inside the chat.' },
       { emoji: '💇', title: 'Service businesses', desc: 'Salons, clinics, and agencies that want to answer booking and pricing questions automatically.' },
@@ -330,7 +319,6 @@ export const PRODUCTS = [
   },
 ]
 
-// ── SERVICES ──────────────────────────────────────────────
 export const SERVICES = [
   { num: '01', icon: 'fa-brain', name: 'AI & LLM Development', desc: 'Custom RAG pipelines, LLM fine-tuning, intelligent chatbots, NLP systems, and ML models tailored to your data and domain.' },
   { num: '02', icon: 'fa-mobile-alt', name: 'Mobile App Development', desc: 'iOS and Android applications with AI integrations — GPT assistants, on-device ML, and real-time data sync built for performance.' },
@@ -340,7 +328,6 @@ export const SERVICES = [
   { num: '06', icon: 'fa-chalkboard-teacher', name: 'Technical Training', desc: 'Hands-on corporate programs in AI/ML, full-stack development, and cloud technologies for teams at every level.' },
 ]
 
-// ── CLIENT WORK ───────────────────────────────────────────
 export const CLIENTS = [
   { cat: 'Life Coaching · Wellness', name: 'HappySoul Coaching', icon: 'fa-heart', color: '#7c3aed', bg: 'linear-gradient(135deg,#f5f0ff,#ede9fe)', url: 'https://happysoul.info/',
     desc: 'Professional coaching platform with an integrated appointment booking system, client management portal, and structured content delivery — built to scale a coaching practice digitally.' },
@@ -348,7 +335,6 @@ export const CLIENTS = [
     desc: 'Transformative wellness platform offering holistic life coaching, curated workshop management, and a content hub for personal development resources — a premium experience at every touchpoint.' },
 ]
 
-// ── RAG FLOW (How our AI works) ───────────────────────────
 export const RAG_FLOW = [
   { icon: 'fa-user', title: 'User Query', desc: 'A user asks a natural-language question', edge: 'embed' },
   { icon: 'fa-project-diagram', title: 'Vector Embedding', desc: 'Query converted to a semantic vector', edge: 'search' },

@@ -1,5 +1,14 @@
 .sp-hero { position: relative; padding: calc(var(--nav-h) + var(--topbar-h) + 56px) 0 56px; overflow: hidden; }
-.sp-hero-bg { position: absolute; top: -180px; right: -120px; width: 600px; height: 600px; background: radial-gradient(circle, var(--blue-soft) 0%, transparent 60%); pointer-events: none; }
+.sp-hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('/images/india-ai-bg.png');
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.12;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+}
 .sp-hero-accent { position: absolute; top: 0; right: 0; width: 340px; height: 100%; background-image: url('/images/about-hero-accent.png'); background-size: contain; background-repeat: no-repeat; background-position: center right; opacity: 0.18; pointer-events: none; }
 .sp-hero .display-title { max-width: 760px; }
 

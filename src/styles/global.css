@@ -1,22 +1,20 @@
 /* ============================================================
-   Aasai Tech — Design System
-   Helvetica-first, with Inter as fallback, DM Serif for display titles
+   Aasai Tech — Design System v2
+   Helvetica-first · DM Serif Display for titles · Animated
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
 :root {
-  /* Neutrals */
-  --bg:        #fbfbfd;
-  --bg-2:      #f3f4f8;
+  --bg:        #f9f9fc;
+  --bg-2:      #f2f3f8;
   --surface:   #ffffff;
-  --surface-2: #f7f8fc;
+  --surface-2: #f6f7fb;
   --ink:       #0d0f1a;
   --ink-2:     #4a4f63;
-  --ink-3:     #888ea3;
-  --border:    #e7e8ef;
-  --border-2:  #d8dae4;
+  --ink-3:     #8890a8;
+  --border:    #e5e7ef;
+  --border-2:  #d5d8e6;
 
-  /* Brand */
   --blue:      #2b24e8;
   --blue-2:    #4f48f5;
   --blue-soft: rgba(43, 36, 232, 0.07);
@@ -28,24 +26,27 @@
   --violet:    #7c6fff;
   --violet-soft: rgba(124, 111, 255, 0.09);
 
-  /* Accreditation */
   --nvidia:    #4d7c00;
   --dpiit:     #c44200;
 
-  /* Type — Helvetica for body/UI, DM Serif Display for big titles */
+  /* Typography */
   --display: 'DM Serif Display', Georgia, serif;
-  --sans: Helvetica Neue, Helvetica, Arial, 'Inter', system-ui, sans-serif;
+  --sans: 'Helvetica Neue', Helvetica, Arial, 'Inter', system-ui, sans-serif;
   --mono: 'DM Mono', 'Courier New', monospace;
 
-  --r:   12px;
+  --r:    12px;
   --r-lg: 20px;
   --r-xl: 28px;
   --maxw: 1200px;
   --nav-h: 70px;
   --topbar-h: 34px;
+
+  /* Animation timings */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
-* , *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 124px; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--sans);
@@ -63,7 +64,7 @@ ul { list-style: none; }
 
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(20px, 5vw, 56px); }
 
-/* ── Typography helpers ── */
+/* ── Typography ── */
 .eyebrow {
   font-family: var(--mono);
   font-size: 0.72rem;
@@ -100,8 +101,8 @@ ul { list-style: none; }
   border-radius: 10px;
   font-size: 0.92rem;
   font-weight: 600;
-  border: 1px solid transparent;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+  border: 1.5px solid transparent;
+  transition: transform 0.18s var(--ease-out), box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
   font-family: var(--sans);
   letter-spacing: -0.01em;
 }
@@ -111,6 +112,8 @@ ul { list-style: none; }
 .btn-blue:hover { background: var(--blue-2); transform: translateY(-2px); box-shadow: 0 12px 28px var(--blue-mid); }
 .btn-outline { background: transparent; color: var(--ink); border-color: var(--border-2); }
 .btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
+.btn-demo { background: var(--surface); color: var(--blue); border-color: rgba(43,36,232,0.25); font-weight: 700; }
+.btn-demo:hover { background: var(--blue-soft); border-color: var(--blue); transform: translateY(-2px); }
 .btn-lg { padding: 15px 30px; font-size: 1rem; }
 
 /* ── Section scaffolding ── */
@@ -119,7 +122,7 @@ ul { list-style: none; }
 .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
 .section-head.center .section-sub { margin-left: auto; margin-right: auto; }
 
-/* ── Chips / tags ── */
+/* ── Chips ── */
 .chip {
   display: inline-flex;
   align-items: center;
@@ -134,15 +137,64 @@ ul { list-style: none; }
 .chip.nvidia { color: var(--nvidia); border-color: rgba(77,124,0,0.25); background: rgba(77,124,0,0.06); }
 .chip.dpiit  { color: var(--dpiit);  border-color: rgba(196,66,0,0.25); background: rgba(196,66,0,0.06); }
 
-/* ── Reveal-on-scroll ── */
+/* ── Reveal on scroll ── */
 .reveal { opacity: 1; transform: none; }
-.reveal.reveal-armed { opacity: 0; transform: translateY(22px); transition: opacity 0.65s cubic-bezier(.2,.7,.2,1), transform 0.65s cubic-bezier(.2,.7,.2,1); }
+.reveal.reveal-armed { opacity: 0; transform: translateY(22px); transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out); }
 .reveal.reveal-armed.in { opacity: 1; transform: none; }
+
+/* Staggered children */
+.reveal-stagger > * { opacity: 1; transform: none; }
+.reveal-stagger.armed > * { opacity: 0; transform: translateY(18px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+.reveal-stagger.armed > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.armed > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger.armed > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-stagger.armed > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-stagger.armed > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal-stagger.armed > *:nth-child(6) { transition-delay: 0.40s; }
+.reveal-stagger.in > * { opacity: 1; transform: none; }
+
+/* ── BG Icon decoration ── */
+.bg-icon-grid {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-icon-grid i {
+  position: absolute;
+  color: var(--blue);
+  opacity: 0.04;
+  font-size: 2.4rem;
+  transition: opacity 1s;
+}
 
 /* ── Utility ── */
 .text-blue { color: var(--blue); }
 .text-dim { color: var(--ink-3); }
 .divider { height: 1px; background: var(--border); border: none; }
+
+/* ── Float animation ── */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes floatYSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(3deg); }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(43, 36, 232, 0.25); }
+  70% { box-shadow: 0 0 0 16px rgba(43, 36, 232, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(43, 36, 232, 0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes packet { from { left: -24px; } to { left: 100%; } }
+@keyframes scroll { to { transform: translateX(-50%); } }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
