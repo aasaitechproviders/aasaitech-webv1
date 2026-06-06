@@ -57,7 +57,7 @@ export default function ProductCard({ product, large = false }) {
       {p.heroImg && (
         <div className="pcard-img-wrap">
           <img src={p.heroImg} alt={p.name} className="pcard-img" />
-          {p.live && <span className="pcard-live-badge">● Live</span>}
+          {p.live && <span className="pcard-live-badge">Live</span>}
         </div>
       )}
       <Link to={`/products/${p.slug}`} className="pcard">

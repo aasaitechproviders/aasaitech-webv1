@@ -3,20 +3,20 @@
 .hero-bg-img {
   position: absolute;
   top: 0; right: 0;
-  width: 60%; height: 100%;
+  width: 65%; height: 100%;
   background-image: url('/images/india-ai-bg.png');
   background-size: cover;
-  background-position: center left;
-  opacity: 0.12;
+  background-position: center;
+  opacity: 0.28;
   pointer-events: none;
-  mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 10%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 10%, transparent 100%);
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 20%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 20%, rgba(0,0,0,0.4) 60%, transparent 100%);
 }
 /* Decorative background icons */
 .hero-bg-icons { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
 .hero-bg-icons i {
   position: absolute;
-  opacity: 0.035;
+  opacity: 0.07;
   color: var(--blue);
   font-size: 2.2rem;
 }
@@ -155,7 +155,7 @@
 /* ── PRODUCTS ── */
 .products-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 3rem; flex-wrap: wrap; }
 .products-top .section-sub { max-width: 340px; }
-.featured-wrap { margin-bottom: 18px; }
+.featured-wrap { margin-bottom: 20px; }
 .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
 /* ── PROBLEM/SOLUTION ── */
